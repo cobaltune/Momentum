@@ -567,3 +567,6 @@ variable은 value가 있음
 
 전에는 전부를 console.log 했지만 지금은 그럴 필요가 없음
 : 왜냐하면 function이 무언가를 `return` 하기 때문
+
+
+#2.12 Recap
