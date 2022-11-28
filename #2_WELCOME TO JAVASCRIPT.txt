@@ -570,7 +570,7 @@ variable은 value가 있음
 
 
 #2.12 Recap
-`return` 을 해야하는 이유
+`return` 을 해야 하는 이유
 : `a+b`, `a-b` 같은 실제적인 계산은
   javascript 코드에서 바로 value를 얻을 수가 없음
 
@@ -587,7 +587,7 @@ const plusResult = 5;
 콘솔창에 결과값은 잘 작동되지만 `plusResult`는 `undefined`임
 
 왜냐하면 function을 variable에 할당하면
-그 variable은 plus function의 결과 type을 가지게 될거임
+그 variable은 plus function의 결과 type을 가지게 될 거임
 
 
 우린 function 외부에서 그 value를 얻길 원하지
@@ -607,16 +607,16 @@ const calculator = {
 	plus: function (a, b) {
 		console.log ("hello");
 		return a + b;
-		console.log ("bye bye");  // console되지 않음
+		console.log ("bye bye");  // console 되지 않음
 },
 
 
-function은 계속 남아있는게 아님 (실행되고 나면) 사라지고, 마지막엔 결과를 남김
-우리가 원하는 건, function 외부에서 value를 제공받는거
+function은 계속 남아있는 게 아님 (실행되고 나면) 사라지고, 마지막엔 결과를 남김
+우리가 원하는 건, function 외부에서 value를 제공받는 거
 
 ex ) 사용자의 위치에 따라 날씨 정보를 알고 싶다면
      날씨 정보를 구한 다음 그 값을 (콘솔이 아니라) 화면에 멋지게 출력
-     그래서 console.log 대신에 return 을 사용할거임
+     그래서 console.log 대신에 return 을 사용할 거임
      ⇒ 대체하기 (replacing)라 할 수 있지
 
 // 여기까지 javascript 이론
