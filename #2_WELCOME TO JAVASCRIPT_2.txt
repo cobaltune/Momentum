@@ -268,4 +268,14 @@ if (isNaN(age) || age < 0) {
 } else if (age >= 18 && age <= 50 && true){
 
 // of course 2
-if ()
+if ((a && b) || (c && d) || (x && w)) {
+// (3) (2) (1) 순
+
+** javascript는 작은 괄호부터 시작해서 큰 괄호순
+
+이제 html과 상호작용하는 단계로 넘어갈 준비 완
+그리고 사용자와 상호작용하는 부분이 가장 중요
+javascript는 본래 사용자와 상호작용하기 위해 만들어졌음
+
+키보드 입력, 마우스 클릭 등의 event를 listen (감지) 해야 함
+그리고 javascript로 html을 수정하는 방법도 …
