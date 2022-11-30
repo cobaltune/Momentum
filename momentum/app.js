@@ -1,1 +1,3 @@
-console.log (545454);
+const title = document.querySelector('.hello h1');
+
+console.log(title);
