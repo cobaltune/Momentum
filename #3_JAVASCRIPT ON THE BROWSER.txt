@@ -1,0 +1,216 @@
+
+#3.0 The Document Object
+
+콘솔창에서 `document`를 치면 <html>를 볼 수 있음
+브라우저가 <html> 정보가 아주 많이 들어있는 `document` 라는 object를 전달해 줌
+
+콘솔창에서 `console.dir (document)`를 치면 그저 object
+`document`는 정말 많은 것들이 들어있는 object
+
+javascript에서
+<html> `document` 객체로부터 `title`을 가지고 올 수 있음
+
+
+// <html> 코드를 javascript 관점에서 보는 거
+// 콘솔창에서
+document.title
+
+// 출력값
+"Momentum"
+
++) 생각해 보면 object에서 properties를 가지고 올 수 있음,
+   properties 값을 바꿀 수도 있음
+
+
+만약에 document.title 항목을 변경한다면 ?
+
+// 콘솔창에서
+document.title = "Hi"
+
+// 출력값
+"Hi"
+
+
+⇒ 보다시피 javascript에서 <html>을 읽어올 뿐만 아니라, 변경도 가능
+   물론 콘솔창에서 변경한 건 새로고침 하면 이전 값으로 돌아감
+
+
+#3.1 HTML in Javascript
+
+javascript로 정보를 가지고 올 수 있는 방법
+: document 객체와, element를 가져오는 수많은 함수들을 이용
+
+
+<h1 id=”title”> 이 `id`로 어떻게 가지고 올 수 있을까
+
+// 콘솔창에서
+document.getElementById ("title")
+			   // 이 함수는 string을 전달받는 함수
+
+// 출력값
+<h1 id="title">Geab me!</h1>
+
+
+element를 더 자세하게 보여주는 `console.dir ()`
+
+
+// 콘솔창에서
+autofocus: false
+
+// <html>에서
+<h1 autofocus id="title">Geab me!</h1>
+
+// 다시 콘솔창에서
+autofocus: true
+
+javascript는 html element를 갖고 오지만, <html>자체를 보여주지는 않음
+대신 javascript에서 이 <html>을 표현하는 object를 보여줌
+
+
+// 콘솔창에서
+className: ""
+
+// <html>에서
+<h1 autofocus class="hello" id="title">Geab me!</h1>
+
+// 다시 콘솔창에서
+className: "hello"
+
+
+그러면 우리가 `className` 같은 항목들을 가지고 올 수 있다는 것을 의미
+
+// app.js에서
+const title = document.getElementById('title');
+
+title.innerText = "Got you!";
+
+// 출력값
+<h1 class="hello" id="title">Got you!</h1>
+
+
+// app.js에서
+console.log (title.id);
+console.log (title.className);
+
+// 출력값
+title
+hello
+
+
+<html>에서 항목들을 가져오는 방법
+1. document 에서 항목들을 가지고 오는 것
+2. 이 document 항목들을 변경하는 것
+
+
+#3.2 Searching For Elements
+
+`getElementById` 가 아닌 hello class를 사용하는 방법
+가끔은 많은 element를 한 번에 가지고 와야 하는 경우가 있을 때
+: `getElementsByClassName ()`
+
+// <html>에서
+<h1 class="hello">Grab me!</h1>
+<h1 class="hello">Grab me!</h1>
+<h1 class="hello">Grab me!</h1>
+<h1 class="hello">Grab me!</h1>
+<h1 class="hello">Grab me!</h1>
+
+// app.js에서
+const hellos = document.getElementsByClassName ("hello");
+
+console.log (hellos);
+
+// 출력값
+HTMLCollection(5) [h1.hello, h1.hello, h1.hello, h1.hello,
+h1.hello]  // 이건 array
+
+
+이건 많은 <h1>이 들어있는 array라서 `hello"."` 으로 뭔가를 가져올 수 없음
+
+
+그런데 대부분의 경우에는 class name을 모든 곳에 추가하지는 않음
+
+// <html>에서
+<div class = "hello">
+	<h1>Grab me!</h1>
+</div>
+
+// app.js에서
+const title = document.getElementsByTagName('h1');
+
+console.log(title);
+
+// 출력값
+HTMLCollection [h1]
+
+
+*`tag`는 `anchor`, `div`, `section`, `button` 같은 것들을 의미
+
+니꼴라스 기준, element를 가지고 오는 가장 멋진 방법
+: `querySelector` 와 `querySelectorAll`
+
+*`querySelector`는 element를 css방식으로 검색할 수 있음
+⇒ `hello`란 class 내부에 있는 <h1>을 가지고 올 수 있음
+
+
+// app.js에서
+const title = document.querySelector(".hello h1");
+		/* css selector를 사용해서 class hello를 찾고,
+			 그 안에 있는 h1을 가져와 달라고 함 */
+
+console.log(title);
+
+// 출력값
+<h1>Grab me!</h1>
+
+
+**hello가 class name이라는 것과 그 안의 <h1>을 명시해 줘야 함
+
+`querySelector`는 찾으면 단 하나의 element를 return 해주고, 
+못 찾으면 `null`
+
+
+그런데 이 element를 찾을 수 있다면,
+다른 모든 element도 찾을 수 있어야 하겠지 but 첫 번째 것 하나만 나옴
+
+
+// <html>에서
+<div class = "hello">
+	<h1>Grab me 1!</h1>
+</div>
+<div class = "hello">
+	<h1>Grab me 2!</h1>
+</div>
+<div class = "hello">  // 세 개가 있다고 가정
+	<h1>Grab me 3!</h1>
+</div>
+
+// app.js에서
+const title = document.querySelector(".hello h1");
+const title = document.querySelector(".hello h1:first-child");
+
+console.log(title);
+
+// 출력값
+<h1>Grab me 1!</h1>
+
+
+(method)
+ParentNode.querySelector<Element>
+(selectors: string): Element (+2 overloads)
+Returns the *first element* that is a descendant of node that matches selectors
+
+
+만약 이 세 개 모두 가져오고 싶다면
+
+// app.js에서
+const title = document.querySelectorAll(".hello h1");
+
+`querySelectorAll`은 세 개의 <h1>이 들어있는 array를 가져다줌
+⇒ selector 안의 조건에 부합하는 모든 element를 가져다줌
+
+
+const title = document.querySelector("#hello");
+const title = document.getElementById ("hello")
+
+위 두 코드는 작성하는 법은 달라도, 같은 일을 함
