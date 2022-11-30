@@ -211,7 +211,7 @@ const title = document.querySelectorAll(".hello h1");
 
 
 const title = document.querySelector("#hello");
-const title = document.getElementById ("hello")
+const title = document.getElementById ("hello");
 
 위 두 코드는 작성하는 법은 달라도, 같은 일을 함
 
@@ -220,3 +220,85 @@ const title = document.getElementById ("hello")
 
 
 #3.3 Events
+
+const title = document.querySelector("div.hello:first-child h1");
+console.dir (title);
+title.style.color = "blue";
+
+
+위와 같이 <h1>의 <style>을 javascript에서 변경할 수 있음
+하지만 javascript에서 대부분 작업할 일은 event를 listen 하는 것
+
+*event란
+ex ) click, <h1> 위로 마우스 올리기, 입력을 끝내거나, 이름을 적거나,
+     enter를 누르는 것, wifi에서 접속이 해제될 경우 …
+
+
+웹사이트에서 click event를 감지하는 방법
+
+const title = document.querySelector("div.hello:first-child h1");
+
+function handleTitleClick () {
+	title.style.color = "blue";
+}
+
+// click event를 listen 하고
+title.addEventListener ("click", handleTitleClick);
+                      // click event가 발생하면 위 function이 동작하길 원함
+
+/* 여기서 handleTitleClick '()' 이걸 안 넣은걸 꼭 기억
+	 우린 바로 실행을 시키고 싶은 게 아니고,
+	 event가 발생하면 동작하길 바라서 '()'는 생략 */
+
+
+javascript에 무슨 event를 listen 하고 싶은지 알려줘야 함
+왜냐하면 모든 event에 대해서 알고 싶은 것이 아니고, 단 하나의 event만 알아보고 싶기 때문
+
+
+#3.4 Events part Two
+
+listen 하고 싶은 event를 찾는 가장 좋은 방법
+
+1. 구글에 찾고 싶은 element의 이름, h1 element를 검색
+   ex ) h1 html element mdn
+
+스크롤 하다 보면 링크에 Web APIs라는 문장이 포함된 페이지가 있음
+왜냐하면 이건 javascript 관점의 HTML Heading Element란 의미이기 때문
+
+
+2. property 이름 앞에 on-이 붙어있다면 그게 바로 event listener
+   *event를 사용할 때에는 ex ) onaborr 대신 abort로 사용해야 함
+
+
+// javascript 에서
+console.dir (title);
+						// 해당 element
+
+// 콘솔창에서 확인
+
+
+mouseenter
+: 마우스가 title 위에 올라갈 때, click은 하지 않고 그냥 위에 위치할 때의 event
+
+
+const title = document.querySelector("div.hello:first-child h1");
+
+function handleTitleClick () {
+	title.style.color = "blue";
+}
+
+function handleMouseEnter () {
+	title.innerText = "Mouse is here!";
+}
+
+function handleMouseLeave () {
+	titile.innerText = "Mouse is gone!";
+}
+
+title.addEventListener("click", handleTitleClick);
+title.addEventListener("mouseenter", handleMouseEnter);
+title.addEventListener("mouseleave", handleMouseLeave);
+
+
+#3.5 More Events
+
