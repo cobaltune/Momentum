@@ -214,3 +214,9 @@ const title = document.querySelector("#hello");
 const title = document.getElementById ("hello")
 
 위 두 코드는 작성하는 법은 달라도, 같은 일을 함
+
+하지만 여기서 <h1>을 가지고 오고 싶다거나,
+`hello`란 id 하위의 form을 가져온다든지 하는 것들은 `getElementById`로는 할 수 없음
+
+
+#3.3 Events
