@@ -292,7 +292,7 @@ function handleMouseEnter () {
 }
 
 function handleMouseLeave () {
-	titile.innerText = "Mouse is gone!";
+	title.innerText = "Mouse is gone!";
 }
 
 title.addEventListener("click", handleTitleClick);
@@ -302,3 +302,52 @@ title.addEventListener("mouseleave", handleMouseLeave);
 
 #3.5 More Events
 
+event를 사용하는 데에는 두 가지 방법
+
+  1. `addEventListener()`를 통해서 event들을 listen할 수도 있고,
+
+    title.addEventListener("click", handleTitleClick);
+  
+  2. oneventname property에 event listener를 할당함으로써 event를 listen할 수 있음
+
+    title.onclick = handleTitleClick;
+
+
+니꼴라스가 `addEventListener`를 더 선호하는 이유
+: 나중에 `removeEventListener`를 통해서 event listener를 제거할 수 있기 때문
+
+
+- window와 관련된 event : resize
+
+  function handleWindowResize () {
+    document.body.style.backgrounColor = "tomato";
+  }
+
+  - window.addEventListener ("resize", handleWindowResize);
+  // document와 같이 window도 제공
+
+
+- clipboard에 관련된 event : copy, paste
+
+  function handleWindowCopy () {
+    alert ("copier!");
+  }
+
+  window.addEventListener ("copy", handleWindowCopy);
+
+
+- wifi (connection)에 관련된 event : offline, online
+
+  function handleWindowOffline () {
+    alert ("SOS no WIFI");
+  }
+
+  function handleWindowOnline () {
+    alert ("ALL GOOD");
+  }
+
+  window.addEventListener ("offline", handleWindowOffline);
+  window.addEventListener ("online", handleWindowOnline);
+
+
+  #3.6 CSS in Javascript
