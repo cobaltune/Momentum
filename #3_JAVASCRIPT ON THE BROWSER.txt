@@ -350,4 +350,60 @@ event를 사용하는 데에는 두 가지 방법
   window.addEventListener ("online", handleWindowOnline);
 
 
-  #3.6 CSS in Javascript
+#3.6 CSS in Javascript
+
+내가 무언가가 true인지를 확인해야 한다는거
+
+const title = document.querySelector("div.hello:first-child h1");
+
+function handleTitleClick () {
+	console.log (h1.style.color);  // getter
+	title.style.color = "blue";  // setter
+	console.log (h1.style.color);  // getter
+}
+
+title.addEventListener("click", handleTitleClick);
+
+
+유저가 title을 click했을 때 title을 blue로 색칠
+그리고 한번 더 누르면 title의 색깔을 tomato로 변경
+
+const title = document.querySelector("div.hello:first-child h1");
+
+function handleTitleClick () {
+	if (h1.style.color === "blue") {
+		h1.style.color = "tomato";
+	} else {
+		h1.style.color = "blue";
+	}
+}
+
+title.addEventListener("click", handleTitleClick);
+
+
+여기서 코드를 개선해서 더 깔끔하게 만드려면
+`h1.style.color`를 이렇게 많이 호출하기 보다,
+
+먼저 이 color 현재 상태를 저장하는 것부터
+
+
+const title = document.querySelector("div.hello:first-child h1");
+
+function handleTitleClick () {
+	const currentColor = h1.style.color;
+	let newColor;
+
+	if (h1.style.color === "blue") {
+		newColor = "tomato";
+	} else {
+		newColor = "blue";
+	}
+	h1.style.color = newColor;
+}
+
+title.addEventListener("click", handleTitleClick);
+
+**element의 style을 javascript에서 변경하는 건 별로 선호하지 않음
+
+
+#3.7 CSS in Javascript part Two
