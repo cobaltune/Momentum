@@ -113,4 +113,5 @@
 
 
 
-#1.6 Online IDE = VS Code를 설치할 수 없는 사람들은 위한 영상
+#1.6 Online IDE
+⇒ VS Code를 설치할 수 없는 사람들을 위한 영상
