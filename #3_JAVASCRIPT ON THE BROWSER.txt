@@ -407,3 +407,147 @@ title.addEventListener("click", handleTitleClick);
 
 
 #3.7 CSS in Javascript part Two
+
+  // css
+  body {
+    background-color: beige;
+  }
+  h1 {
+    color: cornflowerblue;
+  }
+  .active {
+    color: tomato;
+  }
+
+  // app.js
+  const h1 = document.querySelector('div.hello:first-child h1');
+
+  function handleTitleClick() {}
+  h1.className = 'active';  // getter 이면서 setter
+  h1.addEventListener('click', handleTitleClick);
+
+
+
+// className 수정
+  body {
+    background-color: beige;
+  }
+  h1 {
+    color: cornflowerblue;
+    transition: color 0.5s ease-in-out;
+  }
+  .clicked {
+    color: tomato;
+  }
+
+// className 수정 및 if, else문 추가
+  const h1 = document.querySelector('div.hello:first-child h1');
+
+  function handleTitleClick() {
+    if (h1.className === 'clicked') {
+      h1.className = '';
+    } else {
+      h1.className = 'clicked';
+    }
+  }
+
+  h1.addEventListener('click', handleTitleClick);
+
+
+
+// error가 발생할 수 있는 부분 축소 (코드 개선)
+  const h1 = document.querySelector('div.hello:first-child h1');
+
+  function handleTitleClick() {
+    const clickedClass = 'clicked';
+    if (h1.className === clickedClass) {
+      h1.className = '';
+    } else {
+      h1.className = clickedClass;
+    }
+  }
+
+  h1.addEventListener('click', handleTitleClick);
+
+
+
+*버그
+<html>에서 <h1>은 class가 없는 상태로 시작했는데
+
+  <body>
+      <div class="hello">
+        <h1>Click me!</h1>
+      </div>
+      <script src="app.js"></script>
+    </body>
+
+
+만약 여기에 class가 있는 상태로 시작하면 어떻게 될까 ?
+
+  // html
+  <body>
+      <div class="hello">
+        <h1 class="sext-font">Click me!</h1>
+      </div>
+      <script src="app.js"></script>
+    </body>
+
+  // css
+  body {
+    background-color: beige;
+  }
+
+  h1 {
+    color: cornflowerblue;
+    transition: color 0.5s ease-in-out;
+  }
+
+  .clicked {
+    color: tomato;
+  }
+
+  .sexy-font {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  // 출력값
+  1. serif
+  2. sans-serif  // click
+  3. sans-serif  // click
+
+
+저장하고 실행하면 <h1>이 sexy-font란 class와 함께 시작
+하지만 javascript를 보면 우리는 이 class name을 교체했음
+
+*javascript는 과거 따위 신경 안 쓰고 그냥 교체함
+  ⇒ 그래서 최초의 class name이 없어짐
+
+
+  const h1 = document.querySelector('div.hello:first-child h1');
+
+  function handleTitleClick() {
+    const clickedClass = 'clicked sexy-font';
+    if (h1.className === clickedClass) {
+      h1.className = '';
+    } else {
+      h1.className = clickedClass;
+    }
+  }
+
+  h1.addEventListener('click', handleTitleClick);
+
+  // 출력값
+  1. serif
+  2. sans-serif  // click
+  3. serif  // click
+
+
+`const clickedClass = 'clicked sexy-font';` 추가 후에야 clicked와 sexy-font가 제대로 추가되고 제거되고 있음
+**하지만 이건 별로 좋은 방법이 아님
+
+왜냐하면 만약 이걸 조금만 변경한다면, class 하나를 추가한다ems지 하면
+javascript는 물론이고 css까지 업데이트해줘야 돼서
+
+**우리는 javascript로 모든 class name을 변경하지 않아야 함
+→ 이건 다음 영상에서
