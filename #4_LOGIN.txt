@@ -165,3 +165,58 @@ javascritp가 어떤 정보를 담은 채로 function을 호출한다는 것을 
 
 #4.3 Events part Two
 
+  const loginForm = document.querySelector('#login-form');
+  const loginInput = document.querySelector('#login-form input');
+
+  const link = document.querySelector('a');
+
+  function onLoginSubmit(event) {
+    event.preventDefault();
+    console.log(loginInput.value);
+  }
+
+  function handleLinkClick() {
+    alert('clicked');
+  }
+
+  loginForm.addEventListener('submit', onLoginSubmit);
+  link.addEventListener('click', handleLinkClick);
+
+
+`link.addEventListener('click', handleLinkClick());`와 다름
+: `()`를 추가하면 이 함수는 한 번만 실행되고 그걸로 끝
+
+⇒ 나는 javascript한테 함수의 이름만 주고, 실행하는 건 javascript의 몫
+
+
+handleLinkClick ({information about the event just happened})
+: 뭐가 클릭됐는지, 어디가 클릭됐는지 등 정보를 알고 싶을 때
+
+javascript는 단순히 함수를 실행시키기만 하는 게 아니라,
+함수를 실행시키는 동시에 그 함수에 첫번째 인자로 object를 넣어줌 (Review from last lesson)
+
+⇒ 우리는 공간만 만들고 받기만 하면 됨
+
+
+`console.log(event);`
+: `handleLinkClick`함수의 첫 번째 argument로 발생한 일에 대해 필요로 할만한 정보를 줌
+⇒ `handleLinkClick (event)`  // event object를 담은 정보
+
+// 콘솔창에서
+MouseEvents {screenX, screenY...}  // 니꼴라스
+PointerEvent {...}  // 본인
+
++) MouseEvent보다 PointerEvent가 더 많은 기능을 포함하고 있어서 이제는 PointerEvent를 쓴다고 함
+  (전자기기가 다양해져서 나왔다고 함)
+
+* 참고 링크
+[https://javascript.info/pointer-events](https://javascript.info/pointer-events)
+
+
+
+#4.2 ~ #4.3 = event를 활용하는 방법, preventDefault를 사용하는 이유
+              addListener 안에 있는 함수는 직접 실행하지 않는다는 것만 기억
+
+
+#4.4 Getting Username
+
