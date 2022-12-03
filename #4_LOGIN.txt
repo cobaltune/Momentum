@@ -115,10 +115,6 @@ user를 믿으면 안 됨
     그래서 더 이상 click에 신경 쓸 필요가 없다 …
 
 
-<form>을 submit하는 순간에
-우리는 브라우저가 새로고침하지 않고, user 정보를 저장하도록 하고 싶음
-
-
 #4.2 Events
 
 submit이라는 event가 발생하는 걸 아예 막거나 중간에 개입해서
@@ -133,4 +129,39 @@ submit event가 발생했다는 걸 파악하고 싶음
   }
 
   loginForm.addEventListener('submit', onLoginSubmit);
+  // submit event는 감지하지만, 여전히 새로고침은 못막음
+
+
+`console.log(event);`
+: `onLoginSubmit`함수의 첫 번째 argument로 발생한 일에 대해 필요로 할만한 정보를 줌
+  ⇒ `onLoginSubmit (event)`  // event object를 담은 정보
+
+// 콘솔창에서
+submitEvents {...}
+
++) `EventListener`에 어떤 function을 추가하던 간에 javascript는
+    모든 `EventListener` function의 첫번째 argument는
+    항상 방금 실행된 event에 대한 여러 정보를 표시해줌 (optional)
+  
+
+  // 브라우저가 우리한테 어떤 정보를 넘겨주는지 확인
+  const loginForm = document.querySelector('#login-form');
+  const loginInput = document.querySelector('#login-form input');
+  // onLoginSubmit function이 하나의 argument를 받도록
+  function onLoginSubmit(event) {
+  // 브라우저의 기본 동작을 막아주는 function
+    event.preventDefault();
+    console.log(loginInput.value);
+  }
+
+  loginForm.addEventListener('submit', onLoginSubmit);
+
+  /* <form>을 `submit`하는 순간에 브라우저가 새로고침하지 않고,
+  user 정보를 저장 */
+
+⇒ 아무것도 안하더라도, 아무것도 하지 않음으로써
+javascritp가 어떤 정보를 담은 채로 function을 호출한다는 것을 알 수 있음
+
+
+#4.3 Events part Two
 
