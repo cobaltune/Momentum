@@ -1,0 +1,136 @@
+
+#4.0 Input Values
+
+
+#4.1 Form Submission
+
+  const loginForm = document.getElementById('login-form');
+
+  const loginInput = loginForm.querySelector('input');
+  const loginButton = loginForm.querySelector('button');
+
+  function onLoginBtnClick() {
+    const username = loginInput.value;
+    if (username === '') {
+      alert('Please write your name');
+    } else if (username.length > 15) {
+      alert('Your name is too long');
+    }
+  }
+
+  loginButton.addEventListener('click', onLoginBtnClick);
+
+항상 user가 입력하는 값의 유효성을 확인하는 건 좋은 연습이지만,
+user를 믿으면 안 됨
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <link rel="stylesheet" href="style.css" />
+
+      <title>Momemtum App</title>
+    </head>
+
+    <body>
+      <div id="login-form">
+        <input
+          required
+          maxlength="15"
+          type="text" placeholder="What is your name?" />
+        <button>Log In</button>
+      </div>
+
+      <script src="app.js"></script>
+    </body>
+  </html>
+
+`required` : input을 필수 입력 항목으로 만들어 줌
+`maxlength` : input 자체적으로 초대 글자 수를 조절할 수 있음
+
+
+*문제 : Log In을 클릭할 때,
+<html>에서 확인 작업을 안 하고 있음
+  그 이유는 <input>이 <form>이 아니기 때문
+
+<input>의 유효성 검사를 작동시키기 위해서는
+  <input>이 <form> 안에 있어야 됨
+
+
+    <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <link rel="stylesheet" href="style.css" />
+
+      <title>Momemtum App</title>
+    </head>
+
+    <body>
+      <form id="login-form">
+        <input
+          required
+          maxlength="15"
+          type="text"
+          placeholder="What is your name?"
+        />
+        <button>Log In</button>
+      </form>
+
+      <script src="app.js"></script>
+    </body>
+  </html>
+
+
+  // js
+  const loginForm = document.getElementById('login-form');
+
+  const loginInput = loginForm.querySelector('input');
+  const loginButton = loginForm.querySelector('button');
+
+  function onLoginBtnClick() {
+    const username = loginInput.value;
+    // username을 아직 받는다는 걸 확인하기 위해서
+    console.log(username);
+  }
+
+  loginButton.addEventListener('click', onLoginBtnClick);
+
+
+*문제
+입력을 하고, 버튼을 누르면 새로고침이 실행되고 값이 사라짐
+그리고 URL에 이상한 게 따라붙음
+  file:///D:/Github/test/Nomadcoders/momentum/index.html?
+
+⇒ 웹사이트를 재시작시키고 있음
+  : <form>안에서 버튼을 누르거나, 엔터를 눌렀을 때
+    <input>이 더 존재하지 않으면 자동으로 submit 되는 규칙이 있기 때문
+    그래서 더 이상 click에 신경 쓸 필요가 없다 …
+
+
+<form>을 submit하는 순간에
+우리는 브라우저가 새로고침하지 않고, user 정보를 저장하도록 하고 싶음
+
+
+#4.2 Events
+
+submit이라는 event가 발생하는 걸 아예 막거나 중간에 개입해서
+submit event가 발생했다는 걸 파악하고 싶음
+
+  const loginForm = document.querySelector('#login-form');
+  const loginInput = document.querySelector('#login-form input');
+
+  function onLoginSubmit() {
+    const username = loginInput.value;
+    console.log(username);
+  }
+
+  loginForm.addEventListener('submit', onLoginSubmit);
+
