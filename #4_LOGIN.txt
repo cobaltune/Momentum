@@ -220,3 +220,81 @@ PointerEvent {...}  // 본인
 
 #4.4 Getting Username
 
+user가 이름을 제출하면 <form>을 없애고 싶음
+  1. <html>요소 자체를 없애기
+  2. <css>를 이용해서 숨기기
+
+  .hidden {
+    display: none;
+  }
+
+
+  // js
+  const loginForm = document.querySelector('#login-form');
+  const loginInput = document.querySelector('#login-form input');
+
+  function onLoginSubmit(event) {
+    event.preventDefault();
+    const username = loginInput.value;
+    loginForm.classList.add('hidden');
+    console.log(username);
+  }
+
+  loginForm.addEventListener('submit', onLoginSubmit);
+
+
+<form>은 숨기고 <h1>은 표시
+but <h1>에 표시할 텍스트가 있을 때만 표시되도록
+
+  <body>
+      <form id="login-form">
+        <input
+          required
+          maxlength="15"
+          type="text"
+          placeholder="What is your name?"
+        />
+        <button>Log In</button>
+      </form>
+      <h1 id="greeting" class="hidden"></h1>
+      <script src="app.js"></script>
+    </body>
+
+
+  // js
+  const loginForm = document.querySelector('#login-form');
+  const loginInput = document.querySelector('#login-form input');
+  const greeting = document.querySelector('#greeting');
+
+  // 대문자로 쓰는 관습이 있음
+  const HIDDEN_CLASSNAME = 'hidden';
+
+  function onLoginSubmit(event) {
+    event.preventDefault();
+    loginForm.classList.add('hidden');
+    const username = loginInput.value;
+    greeting.innerText = `Hello ${username}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+  }
+
+  loginForm.addEventListener('submit', onLoginSubmit);
+
+
+  // 출력값
+  Hello ____
+
+
+`const HIDDEN_CLASSNAME = "hidden";`
++) 일반적으로 string만 포함된 변수는 대문자로 표기하고, string을 저장하고 싶을 때 사용
+그리고 이런 `loginForm`이나 `loginInput`처럼 중요한 정보를 담은 게 아니라서 대문자로 작성함
+
+
+*문제
+유저한테 인사하기는 성공했지만, 우리는 유저를 전혀 기억할 수 없다는 거 …
+현재는 새로고침할 때마다 새로 로그인해야 함
+
+새로고침할 때, <form>을 또 보지 않고도 이름이 저장되어 있으면
+
+
+#4.5 Saving Username
+
