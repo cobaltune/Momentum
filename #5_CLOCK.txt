@@ -1,0 +1,14 @@
+
+#5.0 Intervals
+
+`setInterval (실행하고자 하는 function, 호출되는 function 간격을 몇 ms로 할지)`
+: interval은 ‘매번’ 일어나야 하는 무언가  ex ) ‘매 2초’
+
+가끔 이게 필요할 때가 있는데
+  - 서버를 확인한다든가
+  - 서버가 2초마다 주식시장 API를 확인해야 한다거나
+  - 5초에 한 번씩 일어나야 하는 작업이거나 하는 상황
+
+
+#5.1 Timeouts and Dates
+
