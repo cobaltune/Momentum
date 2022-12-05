@@ -214,8 +214,8 @@ PointerEvent {...}  // 본인
 
 
 
-#4.2 ~ #4.3 = event를 활용하는 방법, preventDefault를 사용하는 이유
-              addListener 안에 있는 함수는 직접 실행하지 않는다는 것만 기억
+#4.2 ~ #4.3 = event를 활용하는 방법, `preventDefault`를 사용하는 이유
+              `addListener` 안에 있는 함수는 직접 실행하지 않는다는 것만 기억
 
 
 #4.4 Getting Username
@@ -298,3 +298,66 @@ but <h1>에 표시할 텍스트가 있을 때만 표시되도록
 
 #4.5 Saving Username
 
+뭔가를 저장하는 건 아주 자주 사용되는 기능 (유저의 이름이나 뭐가 되었든 간에)
+ex ) 유튜브에서 우리가 볼륨을 조절하고 새로고침하면 유튜브가 그 볼륨값을 기억하듯이
+
+user에게 매번 질문하기에는 번거로우니까 value(username)를 저장해 보자
+
+
+우리의 경우 user가 누구인지 (이름을) 기억하고 싶음
+classname을 추가하고 삭제하는 것처럼 그러니 아마 API가 존재하겠지 ?(아마도 비유인 듯)
+
+우리가 브라우저에 뭔가를 기억할 수 있게 해주는 기능이 존재, 그 API의 이름이 local storage
+local storage에 뭐가 들어있는지 보고 싶으면 개발자 도구를 이용하면 됨
+
+  : ≫ - application - storage - local storage
+
+
+`setItem`
+: lacal storage API 중 하나인 method로, `setItem`을 활용하면 local storage에 정보를 저장
+
+  local storage.setItem ("username", "nico");
+
+
+`getItem`
+: 값을 저장하고 난 다음에는 그 값을 볼러올 수 있음
+
+  local storage.getItem ("username");
+
+  // 출력값
+  nico
+
+
+`removeItem`
+: (필요한 경우) 저장된 값을 지울 수 있음
+
+  removeItem.removeItem ("username");
+
+
+user가 이름을 제출할 때 그걸 저장
+
+  const loginForm = document.querySelector('#login-form');
+  const loginInput = document.querySelector('#login-form input');
+  const greeting = document.querySelector('#greeting');
+
+  const HIDDEN_CLASSNAME = 'hidden';
+
+  function onLoginSubmit(event) {
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const username = loginInput.value;
+    localStorage.setItem('username', username);
+    greeting.innerText = `Hello ${username}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+  }
+
+  loginForm.addEventListener('submit', onLoginSubmit);
+
+
+>> local storage에 username이 존재하는지 확인하고 <form>을 표시하지 않고,
+그런 경우 바로 <h1> 요소가 표시되도록
+
+만약 local storage에 유저정보가 없다면 <form>이 먼저 표시되도록
+
+
+#4.6 Loading Username
