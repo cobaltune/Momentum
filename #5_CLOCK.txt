@@ -48,3 +48,41 @@
 
 #5.2 PadStart
 
+`padStart(string이 가져야 하는 길이, 추가할 string)`
+: string에서 쓸 수 있는 function으로, string 앞쪽에 ("") 채워줌
+
+`padEnd(2, "0")`
+: string에서 쓸 수 있는 function으로, string 뒤쪽에 ("") 채워줌
+
+
+`date.getHours()`엔 `padStart()`를 쓸 수 없는데
+그 이유는 `getHours()`가 number라서
+
+
+  String(date.getMinutes()).padStart(2, '0');
+
+`string()`으로 감싸주면 number를 string으로 바꿀 수 있음
+
+
+  const clock = document.querySelector('h2#clock');
+
+  function getClock() {
+    const date = new Date();
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+    clock.innerText = `${hours}:${minutes}:${seconds}`;
+  }
+
+  getClock();
+  setInterval(getClock, 1000);
+
+
+#5.3 Recap
+
+!! 다음 강의 준비물
+: 좋아하는 명언, 적어도 10개 가져오기 (+ 작가)
+
+
+#6.0 Quotes
+
