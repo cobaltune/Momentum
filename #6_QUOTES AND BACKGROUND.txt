@@ -1,0 +1,135 @@
+
+#6.0 Quotes
+
+  // <div>, import 추가
+  <body>
+      <form id="login-form" class="hidden">
+        <input
+          required
+          maxlength="15"
+          type="text"
+          placeholder="What is your name?"
+        />
+        <button>Log In</button>
+      </form>
+      <h2 id="clock">00:00:00</h2>
+      <h1 id="greeting" class="hidden"></h1>
+      <div id="quote">
+        <span></span>
+        <span></span>
+      </div>
+
+      <script src="js/greetings.js"></script>
+      <script src="js/clock.js"></script>
+      <script src="js/quotes.js"></script>
+    </body>
+
+
+첫 번째로 `array`안에 있는 element에 어떻게 접근하느냐
+
+`math.random();`
+: 0부터 1사이의 랜덤한 숫자를 제공
+
+  // 0부터 array의 길이인 10 사이 숫자들에 접근
+  math.random() * 10;
+
+
+*문제
+랜덤으로 나오는 숫자가 소수점을 가지는 float라서, 정수(integer)가 아니기 때문에 소수점 제거해야 함
+
+
+`math.round ();`
+: 소수점 없이 정수만을 반환하고, 숫자에 반올림시킴
+
+  math.round (1.1);
+  // 출력값
+  1
+
+  math.round (1.8);
+  // 출력값
+  2
+
+
+`math.ceil();`
+: 숫자를 천장까지 올림
+
+  math.ceil (1.0);
+  // 출력값
+  1
+
+  math.ceil (1.01);
+  // 출력값
+  2
+
+
+`math.floor();`
+: 마루까지 숫자를 내림
+
+  math.floor (1.9);
+  // 출력값
+  1
+
+  math.ceil (1.9999);
+  // 출력값
+  1
+
+
+  const quotes = [
+    {
+      quote: 'When nothing goes right, go left.',
+      author: 'Snoopy',
+    },
+    {
+      quote:
+        "No problem is so big or so complicated that it can't be run away from.",
+      author: 'Snoopy',
+    },
+    {
+      quote:
+        'Everybody has a moment for an important decisoin. When the moment comes to you, you have to follow your own beliefs.',
+      author: 'Snoopy',
+    },
+    {
+      quote:
+        'At any time, happiness comes after frustration like the sun comes out after rain.',
+      author: 'Snoopy',
+    },
+    {
+      quote: "It's nice to have someone that will just sit and listen to you.",
+      author: 'Snoopy',
+    },
+    {
+      quote:
+        "I don't have time to worry about who doesn't like me. I'm too busy loving the people who love me.",
+      author: 'Snoopy',
+    },
+    {
+      quote:
+        'You are a very loving person and your life will be filled with romance.',
+      author: 'Snoopy',
+    },
+    {
+      quote: 'In the book of life, the answers are not in the back.',
+      author: 'Snoopy',
+    },
+    {
+      quote: "Be yourself, no one can say you're doing it wrong.",
+      author: 'Snoopy',
+    },
+    {
+      quote: 'Happiness is always after frustration like a clear day after rain.',
+      author: 'Snoopy',
+    },
+  ];
+
+  const quote = document.querySelector('#quote span:first-child');
+  const author = document.querySelector('#quote span:last-child');
+
+  const todayQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+  quote.innerText = todayQuote.quote;
+  author.innerText = todayQuote.author;
+
+
+#6.1 Background
+
