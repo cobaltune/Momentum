@@ -2,7 +2,7 @@
 #3.0 The Document Object
 
 콘솔창에서 `document`를 치면 <html>를 볼 수 있음
-브라우저가 <html> 정보가 아주 많이 들어있는 `document` 라는 object를 전달해 줌
+브라우저가 <html> 정보가 아주 많이 들어있는 `document`라는 object를 전달해 줌
 
 콘솔창에서 `console.dir (document)`를 치면 그저 object
 `document`는 정말 많은 것들이 들어있는 object
@@ -11,24 +11,24 @@ javascript에서
 <html> `document` 객체로부터 `title`을 가지고 올 수 있음
 
 
-// <html> 코드를 javascript 관점에서 보는 거
-// 콘솔창에서
-document.title
+  // <html> 코드를 javascript 관점에서 보는 거
+  // 콘솔창에서
+  document.title
 
-// 출력값
-"Momentum"
+  // 출력값
+  "Momentum"
 
 +) 생각해 보면 object에서 properties를 가지고 올 수 있음,
-   properties 값을 바꿀 수도 있음
+   properties값을 바꿀 수도 있음
 
 
 만약에 document.title 항목을 변경한다면 ?
 
-// 콘솔창에서
-document.title = "Hi"
+  // 콘솔창에서
+  document.title = "Hi"
 
-// 출력값
-"Hi"
+  // 출력값
+  "Hi"
 
 
 ⇒ 보다시피 javascript에서 <html>을 읽어올 뿐만 아니라, 변경도 가능
@@ -37,111 +37,111 @@ document.title = "Hi"
 
 #3.1 HTML in Javascript
 
-javascript로 정보를 가지고 올 수 있는 방법
-: document 객체와, element를 가져오는 수많은 함수들을 이용
+- javascript로 정보를 가지고 올 수 있는 방법
+  : document 객체와, element를 가져오는 수많은 함수들을 이용
 
 
-<h1 id=”title”> 이 `id`로 어떻게 가지고 올 수 있을까
+<h1 id="title"> 이 <id>로 어떻게 가지고 올 수 있을까
 
-// 콘솔창에서
-document.getElementById ("title")
-			   // 이 함수는 string을 전달받는 함수
+  // 콘솔창에서
+  document.getElementById ("title")
+          // 이 함수는 string을 전달받는 함수
 
-// 출력값
-<h1 id="title">Geab me!</h1>
+  // 출력값
+  <h1 id="title">Geab me!</h1>
 
 
 element를 더 자세하게 보여주는 `console.dir ()`
 
 
-// 콘솔창에서
-autofocus: false
+  // 콘솔창에서
+  autofocus: false
 
-// <html>에서
-<h1 autofocus id="title">Geab me!</h1>
+  // <html>에서
+  <h1 autofocus id="title">Geab me!</h1>
 
-// 다시 콘솔창에서
-autofocus: true
+  // 다시 콘솔창에서
+  autofocus: true
 
 javascript는 html element를 갖고 오지만, <html>자체를 보여주지는 않음
 대신 javascript에서 이 <html>을 표현하는 object를 보여줌
 
 
-// 콘솔창에서
-className: ""
+  // 콘솔창에서
+  className: ""
 
-// <html>에서
-<h1 autofocus class="hello" id="title">Geab me!</h1>
+  // <html>에서
+  <h1 autofocus class="hello" id="title">Geab me!</h1>
 
-// 다시 콘솔창에서
-className: "hello"
-
-
-그러면 우리가 `className` 같은 항목들을 가지고 올 수 있다는 것을 의미
-
-// app.js에서
-const title = document.getElementById('title');
-
-title.innerText = "Got you!";
-
-// 출력값
-<h1 class="hello" id="title">Got you!</h1>
+  // 다시 콘솔창에서
+  className: "hello"
 
 
-// app.js에서
-console.log (title.id);
-console.log (title.className);
+그러면 우리가 (className)같은 항목들을 가지고 올 수 있다는 것을 의미
 
-// 출력값
-title
-hello
+  // app.js에서
+  const title = document.getElementById('title');
+
+  title.innerText = "Got you!";
+
+  // 출력값
+  <h1 class="hello" id="title">Got you!</h1>
+
+
+  // app.js에서
+  console.log (title.id);
+  console.log (title.className);
+
+  // 출력값
+  title
+  hello
 
 
 <html>에서 항목들을 가져오는 방법
-1. document 에서 항목들을 가지고 오는 것
-2. 이 document 항목들을 변경하는 것
+  1. document 에서 항목들을 가지고 오는 것
+  2. 이 document 항목들을 변경하는 것
 
 
 #3.2 Searching For Elements
 
-`getElementById` 가 아닌 hello class를 사용하는 방법
+`getElementById` 가 아닌 <hello> class를 사용하는 방법
 가끔은 많은 element를 한 번에 가지고 와야 하는 경우가 있을 때
 : `getElementsByClassName ()`
 
-// <html>에서
-<h1 class="hello">Grab me!</h1>
-<h1 class="hello">Grab me!</h1>
-<h1 class="hello">Grab me!</h1>
-<h1 class="hello">Grab me!</h1>
-<h1 class="hello">Grab me!</h1>
+  // <html>에서
+  <h1 class="hello">Grab me!</h1>
+  <h1 class="hello">Grab me!</h1>
+  <h1 class="hello">Grab me!</h1>
+  <h1 class="hello">Grab me!</h1>
+  <h1 class="hello">Grab me!</h1>
 
-// app.js에서
-const hellos = document.getElementsByClassName ("hello");
+  // app.js에서
+  const hellos = document.getElementsByClassName ("hello");
 
-console.log (hellos);
+  console.log (hellos);
 
-// 출력값
-HTMLCollection(5) [h1.hello, h1.hello, h1.hello, h1.hello,
-h1.hello]  // 이건 array
+  // 출력값
+  HTMLCollection(5) [h1.hello, h1.hello, h1.hello, h1.hello,
+  h1.hello]  // 이건 `array`
 
 
-이건 많은 <h1>이 들어있는 array라서 `hello"."` 으로 뭔가를 가져올 수 없음
+이건 많은 <h1>이 들어있는 `array`라서 [hello"."] 으로 뭔가를 가져올 수 없음
 
 
 그런데 대부분의 경우에는 class name을 모든 곳에 추가하지는 않음
 
-// <html>에서
-<div class = "hello">
-	<h1>Grab me!</h1>
-</div>
+  // <html>에서
+  <div class = "hello">
+    <h1>Grab me!</h1>
+  </div>
 
-// app.js에서
-const title = document.getElementsByTagName('h1');
+  // app.js에서
+  const title = document.getElementsByTagName('h1');
 
-console.log(title);
+  console.log(title);
 
-// 출력값
-HTMLCollection [h1]
+  // 출력값
+  HTMLCollection [h1]
 
 
 *`tag`는 `anchor`, `div`, `section`, `button` 같은 것들을 의미
@@ -153,20 +153,20 @@ HTMLCollection [h1]
 ⇒ `hello`란 class 내부에 있는 <h1>을 가지고 올 수 있음
 
 
-// app.js에서
-const title = document.querySelector(".hello h1");
-		/* css selector를 사용해서 class hello를 찾고,
-			 그 안에 있는 h1을 가져와 달라고 함 */
+  // app.js에서
+  const title = document.querySelector(".hello h1");
+      /* css selector를 사용해서 class hello를 찾고,
+        그 안에 있는 h1을 가져와 달라고 함 */
 
-console.log(title);
+  console.log(title);
 
-// 출력값
-<h1>Grab me!</h1>
+  // 출력값
+  <h1>Grab me!</h1>
 
 
-**hello가 class name이라는 것과 그 안의 <h1>을 명시해 줘야 함
+**<hello>가 class name이라는 것과 그 안의 <h1>을 명시해 줘야 함
 
-`querySelector`는 찾으면 단 하나의 element를 return 해주고, 
+`querySelector`는 찾으면 단 하나의 element를 `return`해주고, 
 못 찾으면 `null`
 
 
@@ -174,25 +174,25 @@ console.log(title);
 다른 모든 element도 찾을 수 있어야 하겠지 but 첫 번째 것 하나만 나옴
 
 
-// <html>에서
-<div class = "hello">
-	<h1>Grab me 1!</h1>
-</div>
-<div class = "hello">
-	<h1>Grab me 2!</h1>
-</div>
-<div class = "hello">  // 세 개가 있다고 가정
-	<h1>Grab me 3!</h1>
-</div>
+  // <html>에서
+  <div class = "hello">
+    <h1>Grab me 1!</h1>
+  </div>
+  <div class = "hello">
+    <h1>Grab me 2!</h1>
+  </div>
+  <div class = "hello">  // 세 개가 있다고 가정
+    <h1>Grab me 3!</h1>
+  </div>
 
-// app.js에서
-const title = document.querySelector(".hello h1");
-const title = document.querySelector(".hello h1:first-child");
+  // app.js에서
+  const title = document.querySelector(".hello h1");
+  const title = document.querySelector(".hello h1:first-child");
 
-console.log(title);
+  console.log(title);
 
-// 출력값
-<h1>Grab me 1!</h1>
+  // 출력값
+  <h1>Grab me 1!</h1>
 
 
 (method)
@@ -203,118 +203,118 @@ Returns the *first element* that is a descendant of node that matches selectors
 
 만약 이 세 개 모두 가져오고 싶다면
 
-// app.js에서
-const title = document.querySelectorAll(".hello h1");
+  // app.js에서
+  const title = document.querySelectorAll(".hello h1");
 
-`querySelectorAll`은 세 개의 <h1>이 들어있는 array를 가져다줌
+`querySelectorAll`은 세 개의 <h1>이 들어있는 `array`를 가져다줌
 ⇒ selector 안의 조건에 부합하는 모든 element를 가져다줌
 
 
-const title = document.querySelector("#hello");
-const title = document.getElementById ("hello");
+  const title = document.querySelector("#hello");
+  const title = document.getElementById ("hello");
 
 위 두 코드는 작성하는 법은 달라도, 같은 일을 함
 
 하지만 여기서 <h1>을 가지고 오고 싶다거나,
-`hello`란 id 하위의 form을 가져온다든지 하는 것들은 `getElementById`로는 할 수 없음
+<hello>란 id 하위의 form을 가져온다든지 하는 것들은 `getElementById`로는 할 수 없음
 
 
 #3.3 Events
 
-const title = document.querySelector("div.hello:first-child h1");
-console.dir (title);
-title.style.color = "blue";
+  const title = document.querySelector("div.hello:first-child h1");
+  console.dir (title);
+  title.style.color = "blue";
 
 
 위와 같이 <h1>의 <style>을 javascript에서 변경할 수 있음
-하지만 javascript에서 대부분 작업할 일은 event를 listen 하는 것
+하지만 javascript에서 대부분 작업할 일은 (event)를 listen 하는 것
 
 *event란
 ex ) click, <h1> 위로 마우스 올리기, 입력을 끝내거나, 이름을 적거나,
      enter를 누르는 것, wifi에서 접속이 해제될 경우 …
 
 
-웹사이트에서 click event를 감지하는 방법
+웹사이트에서 (click event)를 감지하는 방법
 
-const title = document.querySelector("div.hello:first-child h1");
+  const title = document.querySelector("div.hello:first-child h1");
 
-function handleTitleClick () {
-	title.style.color = "blue";
-}
+  function handleTitleClick () {
+    title.style.color = "blue";
+  }
 
-// click event를 listen 하고
-title.addEventListener ("click", handleTitleClick);
-                      // click event가 발생하면 위 function이 동작하길 원함
+  // click event를 listen 하고
+  title.addEventListener ("click", handleTitleClick);
+                        // click event가 발생하면 위 function이 동작하길 원함
 
-/* 여기서 handleTitleClick '()' 이걸 안 넣은걸 꼭 기억
-	 우린 바로 실행을 시키고 싶은 게 아니고,
-	 event가 발생하면 동작하길 바라서 '()'는 생략 */
+  /* 여기서 handleTitleClick '()' 이걸 안 넣은걸 꼭 기억
+     우린 바로 실행을 시키고 싶은 게 아니고,
+     (event)가 발생하면 동작하길 바라서 '()'는 생략 */
 
 
-javascript에 무슨 event를 listen 하고 싶은지 알려줘야 함
-왜냐하면 모든 event에 대해서 알고 싶은 것이 아니고, 단 하나의 event만 알아보고 싶기 때문
+javascript에 무슨 (event)를 listen 하고 싶은지 알려줘야 함
+왜냐하면 모든 (event)에 대해서 알고 싶은 것이 아니고, 단 하나의 (event)만 알아보고 싶기 때문
 
 
 #3.4 Events part Two
 
-listen 하고 싶은 event를 찾는 가장 좋은 방법
+listen 하고 싶은 (event)를 찾는 가장 좋은 방법
 
-1. 구글에 찾고 싶은 element의 이름, h1 element를 검색
+1. 구글에 찾고 싶은 element의 이름, <h1> element를 검색
    ex ) h1 html element mdn
 
 스크롤 하다 보면 링크에 Web APIs라는 문장이 포함된 페이지가 있음
 왜냐하면 이건 javascript 관점의 HTML Heading Element란 의미이기 때문
 
 
-2. property 이름 앞에 on-이 붙어있다면 그게 바로 event listener
-   *event를 사용할 때에는 ex ) onaborr 대신 abort로 사용해야 함
+2. property 이름 앞에 on-이 붙어있다면 그게 바로 `event listener`
+   *event를 사용할 때에는 ex ) onabort 대신 abort로 사용해야 함
 
 
-// javascript 에서
-console.dir (title);
-						// 해당 element
+  // javascript 에서
+  console.dir (title);
+              // 해당 element
 
-// 콘솔창에서 확인
-
-
-mouseenter
-: 마우스가 title 위에 올라갈 때, click은 하지 않고 그냥 위에 위치할 때의 event
+  // 콘솔창에서 확인
 
 
-const title = document.querySelector("div.hello:first-child h1");
+`mouseenter`
+  : 마우스가 title 위에 올라갈 때, click은 하지 않고 그냥 위에 위치할 때의 (event)
 
-function handleTitleClick () {
-	title.style.color = "blue";
-}
 
-function handleMouseEnter () {
-	title.innerText = "Mouse is here!";
-}
+  const title = document.querySelector("div.hello:first-child h1");
 
-function handleMouseLeave () {
-	title.innerText = "Mouse is gone!";
-}
+  function handleTitleClick () {
+    title.style.color = "blue";
+  }
 
-title.addEventListener("click", handleTitleClick);
-title.addEventListener("mouseenter", handleMouseEnter);
-title.addEventListener("mouseleave", handleMouseLeave);
+  function handleMouseEnter () {
+    title.innerText = "Mouse is here!";
+  }
+
+  function handleMouseLeave () {
+    title.innerText = "Mouse is gone!";
+  }
+
+  title.addEventListener("click", handleTitleClick);
+  title.addEventListener("mouseenter", handleMouseEnter);
+  title.addEventListener("mouseleave", handleMouseLeave);
 
 
 #3.5 More Events
 
-event를 사용하는 데에는 두 가지 방법
+(event)를 사용하는 데에는 두 가지 방법
 
-  1. `addEventListener()`를 통해서 event들을 listen할 수도 있고,
+  1. `addEventListener()`를 통해서 (event)들을 listen할 수도 있고,
 
-    title.addEventListener("click", handleTitleClick);
+      title.addEventListener("click", handleTitleClick);
   
-  2. oneventname property에 event listener를 할당함으로써 event를 listen할 수 있음
+  2. oneventname property에 `event listener`를 할당함으로써 (event)를 listen할 수 있음
 
-    title.onclick = handleTitleClick;
+      title.onclick = handleTitleClick;
 
 
 니꼴라스가 `addEventListener`를 더 선호하는 이유
-: 나중에 `removeEventListener`를 통해서 event listener를 제거할 수 있기 때문
+: 나중에 `removeEventListener`를 통해서 `event listener`를 제거할 수 있기 때문
 
 
 - window와 관련된 event : resize
@@ -336,7 +336,7 @@ event를 사용하는 데에는 두 가지 방법
   window.addEventListener ("copy", handleWindowCopy);
 
 
-- wifi (connection)에 관련된 event : offline, online
+- wifi (connection)에 관련된 (event) : offline, online
 
   function handleWindowOffline () {
     alert ("SOS no WIFI");
@@ -352,33 +352,33 @@ event를 사용하는 데에는 두 가지 방법
 
 #3.6 CSS in Javascript
 
-내가 무언가가 true인지를 확인해야 한다는거
+내가 무언가가 `true`인지를 확인해야 한다는거
 
-const title = document.querySelector("div.hello:first-child h1");
+  const title = document.querySelector("div.hello:first-child h1");
 
-function handleTitleClick () {
-	console.log (h1.style.color);  // getter
-	title.style.color = "blue";  // setter
-	console.log (h1.style.color);  // getter
-}
+  function handleTitleClick () {
+    console.log (h1.style.color);  // getter
+    title.style.color = "blue";  // setter
+    console.log (h1.style.color);  // getter
+  }
 
-title.addEventListener("click", handleTitleClick);
+  title.addEventListener("click", handleTitleClick);
 
 
 유저가 title을 click했을 때 title을 blue로 색칠
 그리고 한번 더 누르면 title의 색깔을 tomato로 변경
 
-const title = document.querySelector("div.hello:first-child h1");
+  const title = document.querySelector("div.hello:first-child h1");
 
-function handleTitleClick () {
-	if (h1.style.color === "blue") {
-		h1.style.color = "tomato";
-	} else {
-		h1.style.color = "blue";
-	}
-}
+  function handleTitleClick () {
+    if (h1.style.color === "blue") {
+      h1.style.color = "tomato";
+    } else {
+      h1.style.color = "blue";
+    }
+  }
 
-title.addEventListener("click", handleTitleClick);
+  title.addEventListener("click", handleTitleClick);
 
 
 여기서 코드를 개선해서 더 깔끔하게 만드려면
@@ -387,23 +387,23 @@ title.addEventListener("click", handleTitleClick);
 먼저 이 color 현재 상태를 저장하는 것부터
 
 
-const title = document.querySelector("div.hello:first-child h1");
+  const title = document.querySelector("div.hello:first-child h1");
 
-function handleTitleClick () {
-	const currentColor = h1.style.color;
-	let newColor;
+  function handleTitleClick () {
+    const currentColor = h1.style.color;
+    let newColor;
 
-	if (h1.style.color === "blue") {
-		newColor = "tomato";
-	} else {
-		newColor = "blue";
-	}
-	h1.style.color = newColor;
-}
+    if (h1.style.color === "blue") {
+      newColor = "tomato";
+    } else {
+      newColor = "blue";
+    }
+    h1.style.color = newColor;
+  }
 
-title.addEventListener("click", handleTitleClick);
+  title.addEventListener("click", handleTitleClick);
 
-**element의 style을 javascript에서 변경하는 건 별로 선호하지 않음
+**element의 <style>을 javascript에서 변경하는 건 별로 선호하지 않음
 
 
 #3.7 CSS in Javascript part Two
@@ -428,7 +428,7 @@ title.addEventListener("click", handleTitleClick);
 
 
 
-// className 수정
+  // className 수정
   body {
     background-color: beige;
   }
@@ -440,7 +440,7 @@ title.addEventListener("click", handleTitleClick);
     color: tomato;
   }
 
-// className 수정 및 if, else문 추가
+  // className 수정 및 if, else문 추가
   const h1 = document.querySelector('div.hello:first-child h1');
 
   function handleTitleClick() {
@@ -455,7 +455,7 @@ title.addEventListener("click", handleTitleClick);
 
 
 
-// error가 발생할 수 있는 부분 축소 (코드 개선)
+  // error가 발생할 수 있는 부분 축소 (코드 개선)
   const h1 = document.querySelector('div.hello:first-child h1');
 
   function handleTitleClick() {
@@ -468,7 +468,6 @@ title.addEventListener("click", handleTitleClick);
   }
 
   h1.addEventListener('click', handleTitleClick);
-
 
 
 *버그
@@ -517,7 +516,7 @@ title.addEventListener("click", handleTitleClick);
   3. sans-serif  // click
 
 
-저장하고 실행하면 <h1>이 sexy-font란 class와 함께 시작
+저장하고 실행하면 <h1>이 <sexy-font>란 class와 함께 시작
 하지만 javascript를 보면 우리는 이 class name을 교체했음
 
 *javascript는 과거 따위 신경 안 쓰고 그냥 교체함
@@ -546,8 +545,8 @@ title.addEventListener("click", handleTitleClick);
 `const clickedClass = 'clicked sexy-font';` 추가 후에야 clicked와 sexy-font가 제대로 추가되고 제거되고 있음
 **하지만 이건 별로 좋은 방법이 아님
 
-왜냐하면 만약 이걸 조금만 변경한다면, class 하나를 추가한다든지 하면
-javascript는 물론이고 css까지 업데이트해줘야 돼서
+왜냐하면 만약 이걸 조금만 변경한다면, class하나를 추가한다든지 하면
+javascript는 물론이고 <css>까지 업데이트해줘야 돼서
 
 **우리는 javascript로 모든 class name을 변경하지 않아야 함
 → 이건 다음 영상에서
@@ -555,15 +554,15 @@ javascript는 물론이고 css까지 업데이트해줘야 돼서
 
 #3.8 CSS in Javascript part Three
 
-class name을 바꾸는 다른 방법 = classList를 사용
+`class name`을 바꾸는 다른 방법 = `classList`를 사용
 
-classList에는 두 가지 옵션이 있음
-  - className은 이전에 class들은 상관 않고 모든 걸 교체해 줌
-  - classList : class들의 목록으로 작업할 수 있게끔 허용해 줌
+`classList`에는 두 가지 옵션이 있음
+  - `className`은 이전에 class들은 상관 않고 모든 걸 교체해 줌
+  - `classList` : class들의 목록으로 작업할 수 있게끔 허용해 줌
 
 `contains`
-: classList의 function 중 하나로, 이 function은 우리가 명시한 class가
-<html> element의 class에 포함되어 있는지 말해줌
+  : classList의 function 중 하나로, 이 function은 우리가 명시한 class가
+    <html> element의 class에 포함되어 있는지 말해줌
 
 
   const h1 = document.querySelector('div.hello:first-child h1');
@@ -589,7 +588,7 @@ classList에는 두 가지 옵션이 있음
 
 
 `toggle`
-: classList의 function 중 하나로, class name이 존재하는지 확인하고,
+  : classList의 function 중 하나로, class name이 존재하는지 확인하고,
   만약 class name이 존재한다면 toggle은 class name을 제거한 다음
   그리고 만약 class name이 존재하지 않는다면 class name을 추가해 줌
 

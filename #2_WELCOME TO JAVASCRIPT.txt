@@ -7,20 +7,20 @@
 - JavaScript를 다루는 방법
   : 브라우저의 console을 사용하는 거
 
-** 브라우저 창에 console 을 항상 띄워두는 습관들일 것
+** 브라우저 창에 console을 항상 띄워두는 습관들일 것
 
-- html
-!  // 자동으로 HTML 구조를 짜줌
+  - html
+  !  // 자동으로 HTML 구조를 짜줌
 
-<!-- 2. css 연결해 주고 -->
-<link rel="stylesheet" href="style.css">
+  <!-- 2. css 연결해 주고 -->
+  <link rel="stylesheet" href="style.css">
 
-  <title> Momemtum </title>  <!-- 1. 타이틀 먼저 바꾸고 -->
+    <title> Momemtum </title>  <!-- 1. 타이틀 먼저 바꾸고 -->
 
-<!-- 3. js 연결해 주면 세팅 끝 -->
-<body>
-  <script src="app.js"></script>
-</body>
+  <!-- 3. js 연결해 주면 세팅 끝 -->
+  <body>
+    <script src="app.js"></script>
+  </body>
 
 
 #2.1 Basic Data Types
@@ -48,9 +48,9 @@ JavaScript에서 숫자를 사용할 수 있다는 것을 알았고
 #2.2 Variables
 
 variables(변수)라는 개념이 왜 필요한지 알아봄
-variables 의 가치에 대해서 이해해 보도록
+variables의 가치에 대해서 이해해 보도록
 
-variables 는 값을 저장하거나 유지하는 역할
+variables는 값을 저장하거나 유지하는 역할
 - const (= constant (상수: 바뀌지 않은 값 = 계속 유지됨))
 
 variable의 이름은 어떻게 정하느냐
@@ -71,23 +71,23 @@ variable을 만드는 방법
 그럼 variable 값을 변경하는 게 필요한 경우도 있을까 ?
 값을 바꾸는 게 필요할 때도 가끔 있지. variable 값을 업데이트하고 싶을 수 있음
 
-let은 새로운 것을 생성할 때 사용하는 것
+`let`은 새로운 것을 생성할 때 사용하는 것
 글쓴이의 의도를 알 수 있음
 
-많은 사람들이 const를 기본적으로 사용하고
+많은 사람들이 `const`를 기본적으로 사용하고
 만약 variable을 업데이트하고 싶다면 let 을 씀
 
-과거에는 var만 존재
+과거에는 `var`만 존재
 매우 이상한 규칙이 있었는데
 ver을 원한다면 어디서든 업데이트할 수 있었음
 
 문제점이 있는 게 이러면 우리는 언어를 통한 보호를 받지 못함
-만약에 실수로 var a의 값을 업데이트해도 언어가 말해주지 않음
+만약에 실수로 `var = a`의 값을 업데이트해도 언어가 말해주지 않음
 
-이게 const와 let을 만든 이유 : 이를 통해 몇몇 값을 보호할 수 있음
+이게 `const`와 `let`을 만든 이유 : 이를 통해 몇몇 값을 보호할 수 있음
 
 always const
-sometims let
+sometimes let
 never var ㅋㅋㅋ
 
 
@@ -135,24 +135,24 @@ array를 가지고 더 많은 것을 할 수 있는데
 - array 안에서 항목을 받아오는 것
 - 원한다면 array에 하나 더 추가할 수도
 
-const dayOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+  const dayOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
-// get item from array
-console.log (daysOfWeek[4]);
+  // get item from array
+  console.log (daysOfWeek[4]);
 
-// add one more day to the array
-daysOfWeek.push("sun");
+  // add one more day to the array
+  daysOfWeek.push("sun");
 
 
-아무든 array의 목적은 하나의 variable 안에 데이터의 list를 가지는 것
+아무든 `array`의 목적은 하나의 variable 안에 데이터의 list를 가지는 것
 
 만약 네가 구매하고자 하는 것들의 리스트가 있는데
-array 없이 어떻게 할래? => 계속해서 variable을 만들 수는 없다는 뜻
+`array` 없이 어떻게 할래? => 계속해서 variable을 만들 수는 없다는 뜻
 
 그렇다면 정말 많은 variable이 필요하게 될 거고,
 그러면 그 많은 걸 주문하지도 못하고, 다섯 번째에 접근하지도 못하니까 list가 필요한 거
 
-array는 가장 기초적이고 필수적인 데이터 구조인데 값을 리스트로 정리
+`array`는 가장 기초적이고 필수적인 데이터 구조인데 값을 리스트로 정리
 
 
 #2.6 Objects
@@ -160,31 +160,31 @@ array는 가장 기초적이고 필수적인 데이터 구조인데 값을 리�
 나만의 xx.xx 같은 걸 만들 수 있음
 
 가끔씩은 list 안에 정리하고 싶지 않을 수 있음
-어떨 때는 object 라는 것을 만들어야 할 때가 있음
+어떨 때는 `object`라는 것을 만들어야 할 때가 있음
 
 이걸 설명할 때 가장 좋은 예시는 비디오게임인 거 같음
 
 게임을 만들고 있다고 상상
 그래서 게임 안에서 캐릭터, 그러니까 플레이어를 만든다고 해보자
 
-const playerName = "nico";
-const playerPoints = 121212;
-const playerHansome = false;
-const playerFat = "little bit";
+  const playerName = "nico";
+  const playerPoints = 121212;
+  const playerHansome = false;
+  const playerFat = "little bit";
 
-player.name
-player.points
-player.hansome
-/* 우리는 player.(-)이라는 특성들이 한 개체의 개체(entity),
-   즉 player에 대해서 설명하고 있다는 걸 알기 때문 */
+  player.name
+  player.points
+  player.hansome
+  /* 우리는 player.(-)이라는 특성들이 한 개체의 개체(entity),
+    즉 player에 대해서 설명하고 있다는 걸 알기 때문 */
 
 우리가 하려는 것은 데이터를 가능한 최선으로 정리하는 것
 
-const player = {
-	name: "nico",
-	points: 10,
-	fat: true,
-};
+  const player = {
+    name: "nico",
+    points: 10,
+    fat: true,
+  };
 
 ㄴ 우리는 object 안에서 (=)를 사용하지 않아 (:) 을 사용
    그리고 한 개의 property를 작성하고 난 뒤엔 콤마 (,)를 사용하는데
@@ -196,321 +196,320 @@ const player = {
 배열과 달리 오브젝트에서는 그게 무엇인지 알 수 없는 property들도 있는 것
 object를 업데이트할 수도 있음
 
-const player = {
-	name: "nico",
-	points: 10,
-	fat: true,
-};
+  const player = {
+    name: "nico",
+    points: 10,
+    fat: true,
+  };
 
-/* 우리는 이걸 array에는 넣을 수 없었는데
-   왜냐면 이게 뭘 뜻하는지 알 수 없기 때문에
-   우리가 옆에 설명을 붙여야만 어떤 의미를 가지는지 알 수 있음 */
+  /* 우리는 이걸 array에는 넣을 수 없었는데
+    왜냐면 이게 뭘 뜻하는지 알 수 없기 때문에
+    우리가 옆에 설명을 붙여야만 어떤 의미를 가지는지 알 수 있음 */
 
-// 수정
-console.log (player);
-player.fat = false;
-console.log (player);
+  // 수정
+  console.log (player);
+  player.fat = false;
+  console.log (player);
 
-// 추가
-console.log (player);
-player.lastName = "potato";
-console.log (player);
+  // 추가
+  console.log (player);
+  player.lastName = "potato";
+  console.log (player);
 
-object는 property를 가진 데이터를 저장하도록 해줌
+`object`는 property를 가진 데이터를 저장하도록 해줌
 
 
 #2.7 Functions part One
 
-function은 네가 계속 반복해서 사용할 수 있는 코드 조각
-코드의 반복을 최소한으로 줄이고 싶어서 function을 만드는 거
+`function`은 네가 계속 반복해서 사용할 수 있는 코드 조각
+코드의 반복을 최소한으로 줄이고 싶어서 `function`을 만드는 거
 
-function은 어떤 코드를 캡슐화해서, 실행을 여러 번 할 수 있게 해줌
+`function`은 어떤 코드를 캡슐화해서, 실행을 여러 번 할 수 있게 해줌
 ex) 노래, 동영상 재생 같은 계속 계속 반복해서 보고, 들을 수 있음
 
-function sayHello (){
-	console.log ("Hello my name is ");
-}
+  function sayHello (){
+    console.log ("Hello my name is ");
+  }
 
-sayHello();
+  sayHello();
 
 우리가 argument(인수)라는 것을 보내야 함
-argument는 function을 실행하는 동안 어떤 정보를 function에게 보낼 수 있는 방법
-function 실행 버튼을 누르면서 뭔가를 보내는 법
+argument는 `function`을 실행하는 동안 어떤 정보를 `function`에게 보낼 수 있는 방법
+`function` 실행 버튼을 누르면서 뭔가를 보내는 법
 
 
 #2.8 Functions part Two
 
 우리가 데이터를 받는 방법은 여기 ()에 데이터를 추가하는 것
 
-// 1개의 argument
-function sayHello (nameOfPerson){
-	console.log (nameOfPerson);
-}
+  // 1개의 argument
+  function sayHello (nameOfPerson){
+    console.log (nameOfPerson);
+  }
 
-sayHello("nico");
-sayHello("dal");
-sayHello("lynn");
+  sayHello("nico");
+  sayHello("dal");
+  sayHello("lynn");
 
-// 2개의 argument
-function sayHello (nameOfPerson, age){
-	console.log ("Hello my name is " + nameOfPerson +
-" and I'm " + age);
-}
+  // 2개의 argument
+  function sayHello (nameOfPerson, age){
+    console.log ("Hello my name is " + nameOfPerson +
+  " and I'm " + age);
+  }
 
-sayHello("nico", 10);
-sayHello("dal", 23);
-sayHello("lynn", 21);
+  sayHello("nico", 10);
+  sayHello("dal", 23);
+  sayHello("lynn", 21);
 
 
 아주 간단한 계산기를 만들어보자
 
-function plus (firstNumber, secondNumber) {
-	console.log (firstNumber + secondNumber);
-}
+  function plus (firstNumber, secondNumber) {
+    console.log (firstNumber + secondNumber);
+  }
 
-plus (60, 8);
-
-
-function divide (a, b) {
-	console.log (a / b);
-}
-
-divide (98,20);
+  plus (60, 8);
 
 
-// player object
-const player = {
-	name: "nico",
-	sayhello: function(otherPersonsName) {
-		console.log ("Hello " + otherPersonsName + " nice ot meet you!");
-	},
-};
+  function divide (a, b) {
+    console.log (a / b);
+  }
 
-console.log (player.name);
-player.sayHello ("lynn");
+  divide (98,20);
+
+
+  // player object
+  const player = {
+    name: "nico",
+    sayhello: function(otherPersonsName) {
+      console.log ("Hello " + otherPersonsName + " nice ot meet you!");
+    },
+  };
+
+  console.log (player.name);
+  player.sayHello ("lynn");
 
 
 #2.9 Recap  // recapitulation : 요점의 되풀이, 요약, 개요
 
 data type은 자바스크립트가 이해할 수 있는 데이터의 종류들
 
-// array item을 update
-const toBuy = ["potato", "tomato", "pizza"];
+  // array item을 update
+  const toBuy = ["potato", "tomato", "pizza"];
 
-console.log (toBuy[2]);
-toBuy[2] = "water";
-console.log (toBuy[2]);
+  console.log (toBuy[2]);
+  toBuy[2] = "water";
+  console.log (toBuy[2]);
 
-// array 끝에 item을 하나 더 추가
-toBuy.push ("meat");
-console.log (toBuy);
+  // array 끝에 item을 하나 더 추가
+  toBuy.push ("meat");
+  console.log (toBuy);
 
 
 #2.10 Recap II
 
 list를 쓰면 항목들에 공통된 맥락이 있다
 
-const days = ["mon", "tue", "wed"]
-// 이것들은 같은 종류, 즉 한 주의 요일들이란 것
+  const days = ["mon", "tue", "wed"]  // 이것들은 같은 종류, 즉 한 주의 요일들이란 것
 
 
 의미가 있는 property를 저장하려고 할 때
 (= 연관되어 있는 property들을 그룹으로 묶어서 저장해야 할 때)
 
-const player = {
-	name: "Nico",
-	age: 98,
-};
+  const player = {
+    name: "Nico",
+    age: 98,
+  };
 
-console.log (player, console);
-// console도 object 임
+  console.log (player, console);
+  // console도 object 임
 
-// object 중 한 개의 element(item) 가져오기
-console.log (player.name);
+  // object 중 한 개의 element(item) 가져오기
+  console.log (player.name);
 
-// object element update
-player.name = "nicolas"
-console.log (player);
+  // object element update
+  player.name = "nicolas"
+  console.log (player);
 
-// object를 만든 이후에, object 안에 새로운 item 만들기
-player.sexy = "soon";
-console.log (player);
+  // object를 만든 이후에, object 안에 새로운 item 만들기
+  player.sexy = "soon";
+  console.log (player);
 
 
-** function 안에 미리 data를 넣어두는 것보다
-function 밖에서 data를 넣을 수 있게 하는 것이 훨씬 나음
-: function의 목적은 여러 가지 일을 같은 코드로 하기 위함이기 때문
+** `function`안에 미리 data를 넣어두는 것보다
+`function`밖에서 data를 넣을 수 있게 하는 것이 훨씬 나음
+: `function`의 목적은 여러 가지 일을 같은 코드로 하기 위함이기 때문
 
-function minusFive (potato) {
-	console.log (potato - 5);
-}
+  function minusFive (potato) {
+    console.log (potato - 5);
+  }
 
-minusFive (5, 10, 12, 34, 4, 5, 6, 7);
+  minusFive (5, 10, 12, 34, 4, 5, 6, 7);
 
-// 출력값
-0
+  // 출력값
+  0
 
-/* 아주 많은 argument를 보내더라도 문제는 되지 않지만
-   위 function은 많은 argument를 받을 준비가 되어있지 않아서
-   오직 첫 번째 argument만 받음 */
+  /* 아주 많은 argument를 보내더라도 문제는 되지 않지만
+    위 function은 많은 argument를 받을 준비가 되어있지 않아서
+    오직 첫 번째 argument만 받음 */
 
-const calculator = {
-	add: function (a, b) {
-		console.log (a, b);
-	},
-};
+  const calculator = {
+    add: function (a, b) {
+      console.log (a, b);
+    },
+  };
 
-calculator.add(5, 1);
+  calculator.add(5, 1);
 
 
 !! 코드 숙제 < +, -, /, ** 기능을 하는 object를 완성시키기>
 
-// my answer
-const calculator = {
-	add: function (a, b) {
-		console.log (a + b);
-	},
-	minus: function (a, b) {
-		console.log (a - b);
-	},
-	divided: function (a, b) {
-		console.log (a / b);
-	},
-	multiplication: function (a, b) {
-		console.log (a * b);
-	},
-	powerOf: function (a, b) {
-		console.log (a ** b);
-	},
-	remainder: function (a, b) {
-		console.log (a % b);
-	}
-};
+  // my answer
+  const calculator = {
+    add: function (a, b) {
+      console.log (a + b);
+    },
+    minus: function (a, b) {
+      console.log (a - b);
+    },
+    divided: function (a, b) {
+      console.log (a / b);
+    },
+    multiplication: function (a, b) {
+      console.log (a * b);
+    },
+    powerOf: function (a, b) {
+      console.log (a ** b);
+    },
+    remainder: function (a, b) {
+      console.log (a % b);
+    }
+  };
 
-// test code
-calculator.add (1, 2);
-calculator.minus (1, 2);
-calculator.divided (1, 2);
-calculator.multiplication (1, 2);
-calculator.powerOf (1, 2);
-calculator.remainder (1, 2);
+  // test code
+  calculator.add (1, 2);
+  calculator.minus (1, 2);
+  calculator.divided (1, 2);
+  calculator.multiplication (1, 2);
+  calculator.powerOf (1, 2);
+  calculator.remainder (1, 2);
 
 
 #2.11 Returns
 
-const calculator = {
-	add: function (a, b) {
-		alert (a + b);
-	}
-}
+  const calculator = {
+    add: function (a, b) {
+      alert (a + b);
+    }
+  }
 
-// test code
-console.log (calculator.add (1, 2));
+  // test code
+  console.log (calculator.add (1, 2));
 
-// 출력값
-undefined
+  // 출력값
+  undefined
 
 
-// 한국 나이를 계산하는 function
-const age = 96;
-	function calculateKrAge (ageOfForeigner) {
-		ageOfForeigner + 2;
-	}
+  // 한국 나이를 계산하는 function
+  const age = 96;
+    function calculateKrAge (ageOfForeigner) {
+      ageOfForeigner + 2;
+    }
 
 함수가 그냥 어떤 기능을 수행하는 것이라고 생각하기보단
 함수는 어떤 일을 수행하고 그 결과를 알려주는 것이라 ...
 그냥 조용히 일을 수행할 뿐만 아니라, 너에게 결과를 줘
 
-- 종종 조용히 일만 수행하는 function도 있을 거고
-- 종종 function 으로부터 결과를 원할 때도 있을 거야
+- 종종 조용히 일만 수행하는 `function`도 있을 거고
+- 종종 `function`으로부터 결과를 원할 때도 있을 거야
 
-console 에서의 결과를 원하는 것이 아니라
-alert 경고문에서의 결과를 원하는 것이 아니라
+console에서의 결과를 원하는 것이 아니라
+`alert`경고문에서의 결과를 원하는 것이 아니라
 너의 코드에서 결과를 원할거야
 
 
-// 한국 나이를 계산하는 function
-const age = 96;
-	function calculateKrAge (ageOfForeigner) {
-		ageOfForeigner + 2;
-	}
+  // 한국 나이를 계산하는 function
+  const age = 96;
+    function calculateKrAge (ageOfForeigner) {
+      ageOfForeigner + 2;
+    }
 
-const KrAge = calculateKrAge (Age);
-console.log (KrAge);
+  const KrAge = calculateKrAge (Age);
+  console.log (KrAge);
 
-// 출력값
-undefined
+  // 출력값
+  undefined
 
 `KrAge`는 아직 정의가 되지 않았어 (undefined)
 뭔가를 하긴 했는데, 우리가 빠뜨린 건 `return`을 하는 거야
 
 
-// 한국 나이를 계산하는 function
-const age = 96;
-	function calculateKrAge (ageOfForeigner) {
-		return ageOfForeigner + 2;
-	}
+  // 한국 나이를 계산하는 function
+  const age = 96;
+    function calculateKrAge (ageOfForeigner) {
+      return ageOfForeigner + 2;
+    }
 
-const KrAge = calculateKrAge (Age);
-console.log (KrAge);
+  const KrAge = calculateKrAge (Age);
+  console.log (KrAge);
 
-// 출력값
-98
+  // 출력값
+  98
 
-function 안에서 무언가를 `return` 하면
-누군가가 function을 실행할 때, `calculateKrAge (Age)`을 대체할 거야
-그래서 이제는 console에 출력하려고 function 을 쓰지 않을 거임
+`function`안에서 무언가를 `return` 하면
+누군가가 `function`을 실행할 때, `calculateKrAge (Age)`을 대체할 거야
+그래서 이제는 console에 출력하려고 `function`을 쓰지 않을 거임
 
-대신 어떤 작업을 처리하고 그 결과를 `return` 하기 위해 function을 사용할거임
-⇒ function이 function의 밖과 소통하는 방법이라 할 수 있음
+대신 어떤 작업을 처리하고 그 결과를 `return` 하기 위해 `function`을 사용할거임
+⇒ `function`이 `function`의 밖과 소통하는 방법이라 할 수 있음
 
 
-가끔 그냥 조용히 작업시키고 결과는 필요 없는 경우의 function
+가끔 그냥 조용히 작업시키고 결과는 필요 없는 경우의 `function`
 
-// 한국 나이를 계산하는 function
-const age = 96;
-	function calculateKrAge (ageOfForeigner) {
-		ageOfForeigner + 2;
-		return "hello";
-	}
+  // 한국 나이를 계산하는 function
+  const age = 96;
+    function calculateKrAge (ageOfForeigner) {
+      ageOfForeigner + 2;
+      return "hello";
+    }
 
-const KrAge = calculateKrAge (Age);
-console.log (KrAge);
+  const KrAge = calculateKrAge (Age);
+  console.log (KrAge);
 
-// 출력값
-hello
+  // 출력값
+  hello
 
-우리는 function에서 console.log 하는 게 아니고
-function의 반환 값과 같은 variable을 console.log 하고 있음
+우리는 `function`에서 `console.log`하는 게 아니고
+`function`의 반환 값과 같은 variable을 `console.log`하고 있음
 
 그래서
 
-const calculator = {
-	add: function (a, b) {
-		return a + b;
-	},
-	minus: function (a, b) {
-		return a - b;
-	},
-	divided: function (a, b) {
-		return a / b;
-	},
-	multiplication: function (a, b) {
-		return a * b;
-	},
-	powerOf: function (a, b) {
-		return a ** b;
-	},
-	remainder: function (a, b) {
-		return a % b;
-	}
-};
+  const calculator = {
+    add: function (a, b) {
+      return a + b;
+    },
+    minus: function (a, b) {
+      return a - b;
+    },
+    divided: function (a, b) {
+      return a / b;
+    },
+    multiplication: function (a, b) {
+      return a * b;
+    },
+    powerOf: function (a, b) {
+      return a ** b;
+    },
+    remainder: function (a, b) {
+      return a % b;
+    }
+  };
 
-// test code
-const plusResult = calculator.add (2, 3);
+  // test code
+  const plusResult = calculator.add (2, 3);
 
-// 출력값
-5
+  // 출력값
+  5
 
 calculator가 나에게 `calculator.add (2, 3);` 이 작업의 결과를 줄 거임
 `plusResult` 에 결과를 가지고 있음
@@ -519,35 +518,35 @@ calculator가 나에게 `calculator.add (2, 3);` 이 작업의 결과를 줄 거
 너는 궁극적으로 이 결과값 `plusResult` 을 화면에 보여줘야 할 거거든
 
 출력값을 보면 잘 작동했는데
-calculator 내부에서 console.log를 사용하지 않았어
+calculator 내부에서 `console.log`를 사용하지 않았어
 
 
-// 다른 예제
-const calculator = {
-	plus: function (a, b) {
-		return a + b;
-	},
-};
+  // 다른 예제
+  const calculator = {
+    plus: function (a, b) {
+      return a + b;
+    },
+  };
 
-const plusResult = calculator.plus(2, 3);
+  const plusResult = calculator.plus(2, 3);
 
-console.log (plusResult);
+  console.log (plusResult);
 
-// 출력값
-5
+  // 출력값
+  5
 
-이 function은 반환 값이 있다면 이 function 이 실행했을 때,
+이 `function`은 반환 값이 있다면 이 `function`이 실행했을 때,
 무언가를 실행하고 끝났을 때 너에게 반환값을 줘
-보다시피 function 내부에서 console.log 하는 것과 큰 차이가 있음
+보다시피 `function`내부에서 `console.log`하는 것과 큰 차이가 있음
 
-function의 외부에서 값을 얻은 뒤에
+`function`의 외부에서 값을 얻은 뒤에
 그 값으로 네가 원하는 모든 것을 할 수 있어
 
-const plusResult = calculator.plus (2, 3);
-const minusResult = calculator.minus (plusResult, 10);
-const timesResult = calculator.times (10, minusResult);
-const dividedResult = calculator.divided (timesResuly, plusResult);
-const powerResult = calculator.powerResult (dividedResult, minusResult);
+  const plusResult = calculator.plus (2, 3);
+  const minusResult = calculator.minus (plusResult, 10);
+  const timesResult = calculator.times (10, minusResult);
+  const dividedResult = calculator.divided (timesResuly, plusResult);
+  const powerResult = calculator.powerResult (dividedResult, minusResult);
 
 
 전에는 이런 것을 하지 않았고, `plus`의 결과값 또한 얻지 못했음
@@ -557,7 +556,7 @@ console은 그냥 보여주기 위한 것일 뿐. 우리의 코드에서는 결�
 보다시피 지금 위 코드는 서로 의존하고 있음 // 이건 흐름을 이해하는데 아주 좋은 방법
 머릿속으로 값들을 바꾸면서 생각해 보면 이렇게 값의 대체를 할 수 있어
 
-`const plusResult` 여기 variable 자체가 function의 반환값이기 때문
+`const plusResult` 여기 variable 자체가 `function`의 반환값이기 때문
 
 물론 이걸 실행해 보면 아무 일도 일어나지 않음
 : 아무것도 console.log 하지 않았기 때문
@@ -574,49 +573,49 @@ variable은 value가 있음
 : `a+b`, `a-b` 같은 실제적인 계산은
   javascript 코드에서 바로 value를 얻을 수가 없음
 
-const plusResult = calculator.plus (2, 3);
+  const plusResult = calculator.plus (2, 3);
 
-// console.log 했을 때
-const plusResult = undefined;
+  // console.log 했을 때
+  const plusResult = undefined;
 
-// return 했을 때
-const plusResult = 5;
+  // return 했을 때
+  const plusResult = 5;
 
 
 `return` 하는 대신 `console.log`를 했을 때
 콘솔창에 결과값은 잘 작동되지만 `plusResult`는 `undefined`임
 
-왜냐하면 function을 variable에 할당하면
-그 variable은 plus function의 결과 type을 가지게 될 거임
+왜냐하면 `function`을 variable에 할당하면
+그 variable은 plus `function`의 결과 type을 가지게 될 거임
 
 
-우린 function 외부에서 그 value를 얻길 원하지
-그래서 이 function은 계산 작업을 하기에 아주 좋음
+우린 `function`외부에서 그 value를 얻길 원하지
+그래서 이 `function`은 계산 작업을 하기에 아주 좋음
 
-우리는 value를 도출해내고 싶음 we need `a+b`의 `return` 값이 필요
+우리는 value를 도출해내고 싶음 we need `a+b`의 `return`값이 필요
 
-variable에 function을 할당하면
-이 variable은 function의 return value를 가지게 됨
+variable에 `function`을 할당하면
+이 variable은 `function`의 `return (value)`를 가지게 됨
 
 
-** 한번 `return` 하면 function은 끝남
-return을 하면 function은 작동을 멈추고 결과 값을 `return` 하고 끝나버림
+** 한번 `return` 하면 `function`은 끝남
+`return`을 하면 `function`은 작동을 멈추고 결과 값을 `return`하고 끝나버림
 => 이게 javascript의 규칙
 
-const calculator = {
-	plus: function (a, b) {
-		console.log ("hello");
-		return a + b;
-		console.log ("bye bye");  // console 되지 않음
-},
+  const calculator = {
+    plus: function (a, b) {
+      console.log ("hello");
+      return a + b;
+      console.log ("bye bye");  // console 되지 않음
+  },
 
 
-function은 계속 남아있는 게 아님 (실행되고 나면) 사라지고, 마지막엔 결과를 남김
-우리가 원하는 건, function 외부에서 value를 제공받는 거
+`function`은 계속 남아있는 게 아님 (실행되고 나면) 사라지고, 마지막엔 결과를 남김
+우리가 원하는 건, `function`외부에서 value를 제공받는 거
 
 ex ) 사용자의 위치에 따라 날씨 정보를 알고 싶다면
      날씨 정보를 구한 다음 그 값을 (콘솔이 아니라) 화면에 멋지게 출력
-     그래서 console.log 대신에 return 을 사용할 거임
+     그래서 `console.log` 대신에 `return`을 사용할 거임
      ⇒ 대체하기 (replacing)라 할 수 있지
 
 // 여기까지 javascript 이론

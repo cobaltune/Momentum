@@ -15,47 +15,47 @@ ex ) 사용자가 로그인되어 있다면, 무언가를 보여준다든지
 - string, boolean , number 같은 data type (자료형)
 
 이것들을 연습해 보고,
-마지막에 if, else 같은 조건문 추가
+마지막에 `if`, `else` 같은 조건문 추가
 
 
-< 음주가 가능한 나이인지 아닌지를 알려주는 계산기 >
-// 유저의 나이를 묻는 것으로 시작
-const age = prompt ("How old are you?");
+  < 음주가 가능한 나이인지 아닌지를 알려주는 계산기 >
+  // 유저의 나이를 묻는 것으로 시작
+  const age = prompt ("How old are you?");
 
-console.log (age);
+  console.log (age);
 
-// 출력값 = string 이 기본값
-// cancel
-null
+  // 출력값 = string 이 기본값
+  // cancel
+  null
 
-// ok
-(비어있는 스트링)
+  // ok
+  (비어있는 스트링)
 
-// 156
-156
+  // 156
+  156
 
 
 새로고침을 하면 페이지가 계속 로딩하는 것처럼 보임
-그리고 나이가 얼마인지를 물어봄, console 에서는 아무 반응이 없음
+그리고 나이가 얼마인지를 물어봄, console에서는 아무 반응이 없음
 이 페이지 (=prompt 창)는 javascript를 일시정지시키고 있음
-ㄴ 그게 `prompt`라는 function의 역할
+ㄴ 그게 `prompt`라는 `function`의 역할
 
 내가 아무것도 안 하면 아무 일도 일어나지 않음
 ⇒ 보는 것처럼 이것은 javascript 코드의 실행을 멈추게 함
 
-그게 더이상 prompt function을 사용하지 않는 이유
+그게 더이상 `prompt function`을 사용하지 않는 이유
 
 
 `prompt`를 안 쓰는 이유는 message가 별로 안 예쁘고,
-아무런 스타일 즉 css를 적용시킬 수 없음 (= 버튼도 못 바꿈)
+아무런 스타일 즉 <css>를 적용시킬 수 없음 (= 버튼도 못 바꿈)
 그리고 어떤 브라우저는 이런 팝업을 제한하기도 하고 아주 오래된 방법
 ⇒ 이건 브라우저로 할 수 있는 가장 직접적인 방법
 
-요즘에는 대부분이 html, css로 만든 자신만의 창을 사용함 
+요즘에는 대부분이 <html>, <css>로 만든 자신만의 창을 사용함 
 아주 멋있고 사용자가 값을 작성할 수 있음
 
 
-value의 type을 보려면 `typeof` 라는 키워드를 써야 됨
+value의 type을 보려면 `typeof`라는 키워드를 써야 됨
 `typeof`를 하고, 한 칸 띄우고, variable을 적으면
 우리는 한 type으로 받아서 다른 type으로 바꾸는 작업을 함 (=type 변경)
 
@@ -68,18 +68,18 @@ A string to convert into a number. Coverts a string to an integer
 ⇒ string을 number로 변환합니다 (text 말고 숫자만 가능)
 
 
-const age = prompt ("How old are you?");
+  const age = prompt ("How old are you?");
 
-console.log (typeof "15", typeof parseint("15"));
+  console.log (typeof "15", typeof parseint("15"));
 
-// 출력값
-string  number
+  // 출력값
+  string  number
 
 
-console.log (age, parseint(age));
+  console.log (age, parseint(age));
 
-// type
-string  number
+  // type
+  string  number
 
 type을 아는 게 멋진 이유는 이 숫자가 어떤 수보다 큰지 작은지 알 수 있기 때문
 string이면 숫자와 크기 비교를 할 수가 없음 number로 바꿔야 알 수 있음
@@ -95,8 +95,8 @@ string이면 숫자와 크기 비교를 할 수가 없음 number로 바꿔야 �
 우린 NaN 인지 확인만 하면 됨
 `parseint` 한 후의 age가 number형이 아니라면 message를 띄울 거
 
-const age = parseint (prompt ("How old are you?"));
-// type를 변환하는 방법
+  const age = parseint (prompt ("How old are you?"));
+  // type를 변환하는 방법
 
 
 다음 강의에서 배울 것은 무언가를 확인하는 방법
@@ -117,49 +117,49 @@ isNaN (number: number): boolean
 A numeric value
 Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number)
 
-이 function을 사용하면 이 function 은 boolean으로 알려줄 거임
+이 `function`을 사용하면 이 `function`은 boolean으로 알려줄 거임
 
-isNaN을 사용하면 하나의 argument (인자)를 주면 number 인지 아닌지를 알려줄 거임
+`isNaN`을 사용하면 하나의 argument (인자)를 주면 number인지 아닌지를 알려줄 거임
 여기서 `age`는 사용자가 무엇을 입력하느냐에 따라 number가 아닐 수도 있음
 
 
-console.log (isNaN(age));
+  console.log (isNaN(age));
 
-// 출력값
-// 15 입력
-false
-// number 아닌 것(NaN)이 아니라는 뜻 (숫자라는 뜻)
+  // 출력값
+  // 15 입력
+  false
+  // number 아닌 것(NaN)이 아니라는 뜻 (숫자라는 뜻)
 
-// lalala 입력
-true
-// age가 NaN이라는 뜻
+  // lalala 입력
+  true
+  // age가 NaN이라는 뜻
 
 
-// 한 가지 조건
-if (condition: 조건) {
-	// condition === true : 조건이 참일 때 실행할 코드
-}
+  // 한 가지 조건
+  if (condition: 조건) {
+    // condition === true : 조건이 참일 때 실행할 코드
+  }
 
-// 두 가지 조건
-if (condition) {
-	// condition === true
-} else {
-	// condition === flase : 조건이 거짓일 때 실행할 코드
-}
+  // 두 가지 조건
+  if (condition) {
+    // condition === true
+  } else {
+    // condition === flase : 조건이 거짓일 때 실행할 코드
+  }
 
 
 condition (조건) 자리에는 무엇이 들어가야 할까
-condition은 boolean으로 판별 가능해야 됨 (= true or false 여야 함)
+condition은 boolean으로 판별 가능해야 됨 (= `true` or `false` 여야 함)
 
 
-const age = parseint (prompt ("How old are you?"));
-// parseint로 string을 number로 변환하려 함
+  const age = parseint (prompt ("How old are you?"));
+  // parseint로 string을 number로 변환하려 함
 
-// isNaN으로 Number 인지 아닌지 확인하려 함
-if (isNaN(age)) {
-	console.log ("Please write a number");
-} else {
-	console.log ("Thank you for writing  your age");
+  // isNaN으로 Number 인지 아닌지 확인하려 함
+  if (isNaN(age)) {
+    console.log ("Please write a number");
+  } else {
+    console.log ("Thank you for writing  your age");
 }
 
 
@@ -174,58 +174,58 @@ if (isNaN(age)) {
 
 #2.15 Conditionals part Three
 
-조건이 많은 경우에 if는 하나 이상 필요할 수 있음
-그래서 else를 하는 대신 `else if`로 연결
+조건이 많은 경우에 `if`는 하나 이상 필요할 수 있음
+그래서 `else`를 하는 대신 `else if`로 연결
 
-`else if`는 `else`와 비슷한데 거기에 if를 더한 개념
-즉 이 `if`가 false 일 때 한 가지 condition을 더 사용할 수 있게 해줌
-
-
-const age = parseint (prompt ("How old are you?"));
-
-if (isNaN(age)) {
-	// `age`가 NaN 일 때 실행
-	console.log ("Please write a number");
-	// 근데 `age`가 number 이면 다른 condition을 확인
-} else if (age < 18){
-	console.log ("You are too young");
-} else {
-	console.log ("You can drink");
-}
+`else if`는 `else`와 비슷한데 거기에 `if`를 더한 개념
+즉 이 `if`가 `false`일 때 한 가지 condition을 더 사용할 수 있게 해줌
 
 
-// 두 가지의 조건을 동시에 확인 (`age`가 18 이상이고 50 이하인지)
-const age = parseint (prompt ("How old are you?"));
+  const age = parseint (prompt ("How old are you?"));
 
-if (isNaN(age)) {
-	console.log ("Please write a number");
-} else if (age < 18){
-	console.log ("You are too young");
-} else if (age >= 18 && age <= 50){
-	// && AND는 왼쪽, 오른쪽 조건이 둘 다 true 여야 하는 거라고 알림
-	// || OR은 둘 중 하나만 true 인지 확인
-	console.log ("You can drink");
-
-} else {
-	console.log ("You can't  drink");
-}
+  if (isNaN(age)) {
+    // `age`가 NaN 일 때 실행
+    console.log ("Please write a number");
+    // 근데 `age`가 number 이면 다른 condition을 확인
+  } else if (age < 18){
+    console.log ("You are too young");
+  } else {
+    console.log ("You can drink");
+  }
 
 
-const age = parseint (prompt ("How old are you?"));
+  // 두 가지의 조건을 동시에 확인 (`age`가 18 이상이고 50 이하인지)
+  const age = parseint (prompt ("How old are you?"));
 
-if (isNaN(age) || age < 0) {
-	console.log ("Please write a real positive number");
-} else if (age < 18){
-	console.log ("You are too young");
-} else if (age >= 18 && age <= 50){
-	console.log ("You can drink");
-} else if (age > 50 && age <= 80){
-	console.log ("You should exercise");
-} else if (age > 80) {
-	console.log ("You can do whatever you want");
-}
+  if (isNaN(age)) {
+    console.log ("Please write a number");
+  } else if (age < 18){
+    console.log ("You are too young");
+  } else if (age >= 18 && age <= 50){
+    // && AND는 왼쪽, 오른쪽 조건이 둘 다 true 여야 하는 거라고 알림
+    // || OR은 둘 중 하나만 true 인지 확인
+    console.log ("You can drink");
 
-// else는 선택적 사항 = else를 꼭 사용해야 하는 건 아님
+  } else {
+    console.log ("You can't  drink");
+  }
+
+
+  const age = parseint (prompt ("How old are you?"));
+
+  if (isNaN(age) || age < 0) {
+    console.log ("Please write a real positive number");
+  } else if (age < 18){
+    console.log ("You are too young");
+  } else if (age >= 18 && age <= 50){
+    console.log ("You can drink");
+  } else if (age > 50 && age <= 80){
+    console.log ("You should exercise");
+  } else if (age > 80) {
+    console.log ("You can do whatever you want");
+  }
+
+  // else는 선택적 사항 = else를 꼭 사용해야 하는 건 아님
 
 
 #2.16 Recap
@@ -234,28 +234,28 @@ if (isNaN(age) || age < 0) {
 뭔가가 어떤 값이랑 그야말로 같은지 확인하고 싶을 때도 있지
 
 
-const age = parseint (prompt ("How old are you?"));
+  const age = parseint (prompt ("How old are you?"));
 
-if (isNaN(age) || age < 0) {
-	console.log ("Please write a real positive number");
-} else if (age < 18){
-	console.log ("You are too young");
-} else if (age >= 18 && age <= 50){
-	console.log ("You can drink");
-} else if (age > 50 && age <= 80){
-	console.log ("You should exercise");
-	/* 하단 조건 때문에 현 조건이 실행이 되지 않을까 봐
-		 위치 조정 = 적는 순서에 관해 잘 생각해야 함
+  if (isNaN(age) || age < 0) {
+    console.log ("Please write a real positive number");
+  } else if (age < 18){
+    console.log ("You are too young");
+  } else if (age >= 18 && age <= 50){
+    console.log ("You can drink");
+  } else if (age > 50 && age <= 80){
+    console.log ("You should exercise");
+    /* 하단 조건 때문에 현 조건이 실행이 되지 않을까 봐
+      위치 조정 = 적는 순서에 관해 잘 생각해야 함
 
-		 순서에 따라 위 조건이 아래 조건을 중첩시킬 수 있음*/
-} else if (age === 100) {
-	console.log ("wow you are wise");
-/* age가 100이 아니라면 ?
-	} else if (age !== 100) {
-	console.log ("wow you are wise"); */
-} else if (age > 80) {
-	console.log ("You can do whatever you want");
-}
+      순서에 따라 위 조건이 아래 조건을 중첩시킬 수 있음*/
+  } else if (age === 100) {
+    console.log ("wow you are wise");
+  /* age가 100이 아니라면 ?
+    } else if (age !== 100) {
+    console.log ("wow you are wise"); */
+  } else if (age > 80) {
+    console.log ("You can do whatever you want");
+  }
 
 
 한 개의 (=)는 value를 할당하는 것
@@ -264,12 +264,12 @@ if (isNaN(age) || age < 0) {
 
 더 많은 condition을 추가할 수 있나요?
 
-// of course
-} else if (age >= 18 && age <= 50 && true){
+  // of course
+  } else if (age >= 18 && age <= 50 && true){
 
-// of course 2
-if ((a && b) || (c && d) || (x && w)) {
-// (3) (2) (1) 순
+  // of course 2
+  if ((a && b) || (c && d) || (x && w)) {
+  // (3) (2) (1) 순
 
 ** javascript는 작은 괄호부터 시작해서 큰 괄호순
 
@@ -277,5 +277,5 @@ if ((a && b) || (c && d) || (x && w)) {
 그리고 사용자와 상호작용하는 부분이 가장 중요
 javascript는 본래 사용자와 상호작용하기 위해 만들어졌음
 
-키보드 입력, 마우스 클릭 등의 event를 listen (감지) 해야 함
-그리고 javascript로 html을 수정하는 방법도 …
+키보드 입력, 마우스 클릭 등의 (event)를 listen (감지) 해야 함
+그리고 javascript로 <html>을 수정하는 방법도 …

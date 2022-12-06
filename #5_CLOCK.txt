@@ -2,7 +2,7 @@
 #5.0 Intervals
 
 `setInterval (실행하고자 하는 function, 호출되는 function 간격을 몇 ms로 할지);`
-: interval은 ‘매번’ 일어나야 하는 무언가  ex ) ‘매 2초’
+  : interval은 ‘매번’ 일어나야 하는 무언가  ex ) ‘매 2초’
 
 가끔 이게 필요할 때가 있는데
   - 서버를 확인한다든가
@@ -13,7 +13,7 @@
 #5.1 Timeouts and Dates
 
 `setTimeout (호출하려고 하는 function, 그리고 얼마나 기다릴지 ms로);`
-: 일정 시간이 흐른 뒤에 function을 딱 한 번만 호출
+  : 일정 시간이 흐른 뒤에 function을 딱 한 번만 호출
 
 `new Date()` object는 현재 날짜, 시간, 분, 초에 대한 정보를 갖고 있음
 우리는 그런 object를 매초마다 새로 만드는 중
@@ -49,10 +49,10 @@
 #5.2 PadStart
 
 `padStart(string이 가져야 하는 길이, 추가할 string)`
-: string에서 쓸 수 있는 function으로, string 앞쪽에 ("") 채워줌
+  : string에서 쓸 수 있는 function으로, string 앞쪽에 ("") 채워줌
 
 `padEnd(2, "0")`
-: string에서 쓸 수 있는 function으로, string 뒤쪽에 ("") 채워줌
+  : string에서 쓸 수 있는 function으로, string 뒤쪽에 ("") 채워줌
 
 
 `date.getHours()`엔 `padStart()`를 쓸 수 없는데
