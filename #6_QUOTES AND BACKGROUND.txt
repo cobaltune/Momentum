@@ -138,6 +138,9 @@
     // 랜덤에 이미지가 필요해서 js에서 만들어야 함
 
 
+`createElement("html tag");`
+: javascirpt에서 <html> element를 만들 수 있음
+
 `appendChild ();`
 : <body>에 <html>을 추가
 
@@ -157,3 +160,8 @@ javascript에서 이미지를 만들고 그걸 <html>에 추가
 
 #6.2 Recap
 
+`appendChild ();`
+: <body>에 <html>을 가장 뒤에 추가
+
+`preChild ();`
+:  <body>에 <html>을 가장 위에 추가
