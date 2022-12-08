@@ -136,8 +136,8 @@ toDo를 입력하면 - localStorage에 저장
 
 
 `forEach`
-: array에 있는 각각의 item에 대해 function을 실행할 수 있게 함
-*하지만 이건 이 array의 item들에 대해 한 개의 function만 실행할 수 있게 해줌
+: `array`에 있는 각각의 item에 대해 `function`을 실행할 수 있게 함
+*하지만 이건 이 `array`의 item들에 대해 한 개의 `function`만 실행할 수 있게 해줌
 
 
   // ex 1)
@@ -169,3 +169,93 @@ toDo를 입력하면 - localStorage에 저장
 #7.5 Loading To Dos part Two
 
 새로고침하면 - localStorage에서 저장한 a, b, c를 불러와서 - 화면에 그려주고 싶음
+
+  const toDoForm = document.getElementById('todo-form');
+  const toDoInput = toDoForm.querySelector('input');
+  const toDoList = document.getElementById('todo-list');
+
+  const TODOS_KEY = 'todos';
+
+  const toDos = [];
+
+  function saveToDos() {
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+  }
+
+  function deleteToDo(event) {
+    const li = event.target.parentElement;
+    li.remove();
+  }
+
+  function paintToDo(newTodo) {
+    const li = document.createElement('li');
+    const span = document.createElement('span');
+    span.innerText = newTodo;
+    const button = document.createElement('button');
+    button.innerText = 'X';
+    button.addEventListener('click', deleteToDo);
+    li.appendChild(span);
+    li.appendChild(button);
+    toDoList.appendChild(li);
+  }
+
+  function handleToDoSubmit(event) {
+    event.preventDefault();
+    const newTodo = toDoInput.value;
+    toDoInput.value = '';
+    toDos.push(newTodo);
+    paintToDo(newTodo);
+    saveToDos();
+  }
+
+  toDoForm.addEventListener('submit', handleToDoSubmit);
+
+  const savedToDos = localStorage.getItem(TODOS_KEY);
+
+  if (saveToDos !== null) {
+    const parsedToDos = JSON.parse(savedToDos);
+    parsedToDos.forEach(paintToDo);
+  }
+
+
+*문제
+
+예전 것들을 복원했지만 새로 추가한 것들만 localStorage에 저장되고, 예전 것은 없어졌음
+게다가 중복되는 item을 추가하면 예전 것을 덮어씀
+
+: application이 시작될 때 `toDos array`는 항상 비어있기 때문
+
+  그리고 `newToDo`를 작성하고 <form>을 `submit`할 때마다
+  `newToDo`를 `toDos array`(빈 array)에 그냥 `push`하게 됨
+
+  그리고 그 toDo를 저장할 때 새로운 toDo들만 포함하고 있는 `array`를 저장하고 있음
+  toDos는 이전의 toDo들은 갖고 있지 않음 (전에 있던 toDo들은 localStorage에 들어있음)
+
+  ⇒ 우리가 갖고 있던 toDos의 이전 복사본을 잊어버리고 있음
+
+
+덮어씌우는 것을 원하지 않고, 이전 것과 새로운 것을 모두 유지하고 싶음
+
+  // let으로 바꿔서 업데이트가 가능하도록 만들고
+  let toDos = [];
+
+  if (saveToDos !== null) {
+    const parsedToDos = JSON.parse(savedToDos);
+
+    /* localStorage에 toDo들이 있으면
+      toDos에 parsedToDos를 넣어서 전에 있던 toDo를 복원 */
+    toDos = parsedToDos;
+
+    parsedToDos.forEach(paintToDo);
+  }
+
+  ⇒ 이건 단지 toDos가 빈 값으로 시작했었기 때문에 일어난 해프닝
+
+
+*문제
+delete하고 새로고침 하면 다시 생기는 item
+: 화면에서는 삭제를 했지만, localStorage에서는 지우지 않았기 때문
+
+
+#7.6 Deleting To Dos part One
+
