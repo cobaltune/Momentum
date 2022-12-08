@@ -24,3 +24,33 @@ input.value를 비우기 전에 그 값을 저장해 보자
 
 #7.1 Adding ToDos
 
+  const toDoForm = document.getElementById('todo-form');
+  const toDoInput = toDoForm.querySelector('input');
+  const toDoList = document.getElementById('todo-list');
+
+  function paintToDo(newTodo) {
+    const li = document.createElement('li');
+    const span = document.createElement('span');
+    li.appendChild(span);
+    span.innerText = newTodo;
+    toDoList.appendChild(li);
+  }
+
+  function handleToDoSubmit(event) {
+    event.preventDefault();
+    const newTodo = toDoInput.value;
+    toDoInput.value = '';
+    paintToDo(newTodo);
+  }
+
+  toDoForm.addEventListener('submit', handleToDoSubmit);
+
+
+*문제
+  - toDo를 지울 수 없다는 거
+  - 새로고침하면 toDo들이 사라지는 거
+
+
+  #7.2 Deleting To Dos
+
+  
