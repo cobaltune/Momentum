@@ -53,4 +53,19 @@ input.value를 비우기 전에 그 값을 저장해 보자
 
   #7.2 Deleting To Dos
 
-  
+toDo를 삭제하는 <button>을 추가해서 클릭했지만,
+어떤 <button>을 눌렀는지 알 수 없음
+
+  const li = event.target.parentElement;
+  // 이게 우리가 삭제하고 싶은 <li>
+
+
+`target`
+: 클릭된 <html>의 element
+
+`parentElement`
+: 클릭된 <html> element의 부모
+
+
+#7.3 Saving To Dos
+
