@@ -1,0 +1,26 @@
+
+#7.0 Setup
+
+<form>/<input>의 value를 얻는 방법
+  1. `toDoInput`을 전체 <html> document에서 찾아볼 수 있음
+    const toDoInput = document.querySelector("#todo-form input");
+
+  2. `toDoInput`을 `toDoForm`안에서만 찾아볼 수 있음
+    const toDoInput = toDoForm.querySelector("input");
+
+
+Enter를 누를 때마다, 입력한 것을 비우고 싶음
+  toDoInput.value = '';
+
+
+input.value를 비우기 전에 그 값을 저장해 보자
+  const newTodo = toDoInput.value;
+    toDoInput.value = '';  // 그 후에 `toDoInput`의 값을 비움
+
+*한 가지 명심할 건, `toDoInput`를 비웠다고 해서 `newToDo`가 비워지는 것을 의미하는 것은 아님
+: <input>의 새로운 value를 새로운 변수에 복사하는 것이기 때문에
+  그 이후에 `input.value`를 가지고 무얼 하든 `newToDo`에는 아무런 영향이 없음
+
+
+#7.1 Adding ToDos
+
