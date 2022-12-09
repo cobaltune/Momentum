@@ -326,6 +326,29 @@ To Do를 지울 때마다 localStorage에 업데이트를 하지 않고 있음
   (4) [1, 2, 4, 5]
 
 
-  #7.8 Deleting To Dos part Three
- 
-  `array`에서 (item)을 삭제하는 법
+#7.8 Deleting To Dos part Three
+
+삭제하고자 하는 id를 제외하고 array를 만들고 - todos array 업데이트
+: todos가 localStorage에 저장돼있으니까 이걸 업데이트해서 유지
+
+
+*문제
+  - li.id는 string 타입
+  - toDo.id는 number 타입
+
+`parseInt()`
+: 문자열을 숫자로 바꿔줌
+
+
+`array`에서 (item)을 삭제하는 법
+
+  function saveToDos() {
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+  }
+
+  function deleteToDo(event) {
+    const li = event.target.parentElement;
+    li.remove();
+    toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+    saveToDos();
+  }
