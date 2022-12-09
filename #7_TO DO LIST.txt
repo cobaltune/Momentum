@@ -259,3 +259,34 @@ delete하고 새로고침 하면 다시 생기는 item
 
 #7.6 Deleting To Dos part One
 
+To Do를 지울 때마다 localStorage에 업데이트를 하지 않고 있음
+*localStorage는 `toDos array`를 복사해두는 곳
+⇒ `toDos array`가 local storage와 같지 않다는 걸 생각
+
+어떤 todo text (item)을 지워야 할지 알 수 없는 javascript, HTML 입장에서
+`deleteToDo`는 화면에서 어떤 element를 지워야 하는지 알고 있음
+그치만 어떤 todo text를 데이터베이스에서 지워야 하는지 모름
+
+만약 “a”가 두 개라면? 첫 번째를 지웠는지, 마지막인지 알 수 없음
+그래서 toDo들에게 ID를 주고자 함
+
+  [{id:121212  /* 랜덤한 ID */, text:"drink" /* todo의 내용 */}]
+
+
+`Date.now()`
+: 밀리초(1000분의 1초)를 주는 함수
+
+
+`push`로 `array`에 (item)을 추가하는 법
+: todo들에게 `id`를 줌으로써 text 대신 object를 `push`
+
+  const newTodoObj = {
+      text: newTodo,
+      id: Date.now(),
+    };
+    toDos.push(newTodoObj);
+
+
+#7.7 Deleting To Dos part Two
+
+`array`에서 (item)을 삭제하는 법
