@@ -1,0 +1,30 @@
+
+#8.0 Geolocation
+
+`navigator`
+: user의 위치(geolocation)를 줌
+
+`getCurrentPosition (1, 2)`
+  1. 모든 게 잘 됐을 때 실행될 함수
+  2. 에러가 발생했을 때 실행될 함수
+
+
+브라우저에서 user의 위치(좌표)를 줌
+
+  function onGeoOk(position) {
+  const lat = position.coords.latitude;
+  const lng = position.coords.longitude;
+  }
+
+  function onGeoError() {
+    alert("Can't find you. No weather for you.");
+  }
+
+  navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+
+
+#8.1 Weather API
+
+위도, 경도를 가리키는 숫자들을 장소로 바꿔줄 서비스
+API 사이트 [https://home.openweathermap.org/](https://home.openweathermap.org/)
+⇒ user의 장소 이름과 현재 날씨를 줌
