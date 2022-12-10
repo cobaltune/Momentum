@@ -25,6 +25,56 @@
 
 #8.1 Weather API
 
-위도, 경도를 가리키는 숫자들을 장소로 바꿔줄 서비스
-API 사이트 [https://home.openweathermap.org/](https://home.openweathermap.org/)
-⇒ user의 장소 이름과 현재 날씨를 줌
+위도, 경도를 가리키는 숫자들을 장소로 바꿔줄 서비스 
+
+API 사이트
+https://home.openweathermap.org/  ⇒ user의 장소 이름과 현재 날씨를 줌
+
+
+기본적으로 API는 다른 서버와 이야기할 수 있는 방법이라 할 수 있음
+
+
+By geographic coordinates
+⇒ 위치 좌표를 사용할 수 있음 = URL에 좌표를 보낼 수 있음 ⇒ URL에서 정보를 응답해 줌
+
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
+  const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+
+
+`fetch()`
+: URL을 얻을 수 있음
+
+  fetch(url);
+
+크롬의 network에 가면 우리가 뭔가 했을 때  WiFi(인터넷)에서 무슨 일이 일어나는지 보여줌
+javascript가 `fetch`를 사용해서 url로 요청함 (실제로 url에 갈 필요 없이 javascript가 대신 url을 부름)
+preview를 보면 응답 결과를 볼 수 있음
+  
+  - name : user가 있는 장소의 이름
+  - main : 날씨
+
+
+화씨온도 → 섭씨온도
+
+  http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+  /* 뒤에 추가 */&units=metric
+
+
+`fetch`는 promise, promise는 당장 뭔가 일어나지 않고 시간이 좀 걸린 뒤에 일어나는 것을 의미
+
+`then()`
+: 서버에 뭔가 물어봤는데 - 서버가 응답하는데 5분이 걸린다고 하면 서버의 응답을 기다려야 함
+  그래서 then을 사용해야 됨
+
+  fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        const weather = document.querySelector('#weather span:first-child');
+        const city = document.querySelector('#weather span:last-child');
+        city.innerText = data.name;
+        weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
+      });
+
+
+#8.2 Conclusions
