@@ -10,4 +10,4 @@
 > 4. local weather
 > 5. background image (random)
 > 6. quote (random)
-> 7. To-Do list
+> 7. to-do list
